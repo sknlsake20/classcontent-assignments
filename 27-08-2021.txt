@@ -1,0 +1,84 @@
+
+Day - 11:
+	
+	java 8 features:
+
+		-> Functional Interface
+		-> Lambda Expression(java.util.Function)
+		-> Method References
+
+	Method Reference:
+	-> this features provides reference to function interface methods.
+
+	Types of Method Reference:
+	1. Static method 
+		BiFunction<Integer,Integer,Integer> bi = Operators::add;
+	2. instance method
+		bi=new Operators()::div;
+	3. constructor reference
+		Displayable dp=Message::new;
+
+
+	Optional:
+	-> it is used to deal with NullPointerException
+
+		Optional<String> cnull=Optional.ofNullable(str[i]);
+
+
+	StringJoiner:
+
+	-> it used for giving sequece of string using delimeter-> , - #
+
+		StringJoiner sj=new StringJoiner("-");
+		StringJoiner sj=new StringJoiner("-","{","}");
+
+
+	Base64:
+
+	-> it is generally used for encoding and decoding
+
+	Base64.Encoder en=Base64.getEncoder();
+
+	Base64.Decoder de=Base64.getDecoder();
+
+
+	Java Nashorn :
+	it is a java script enigne.
+
+
+	Default & static method in interface:
+
+	Default:
+
+	- These methods are declare mainly inside Funtional interface which are defined to provide certain services for abstract methods.
+
+	Static methods:
+	- these methods are declared inside interface to define services to all implemented classes.
+
+	Stream API :
+		-> this api contains many classes, interfaces and enum whicch provided funtionalities to access collection, maps , arrays using functional interface support.
+		-> it is mainly used of processing group of elements.
+
+		
+
+	ex: 
+		collection -> even numbers to be separeted.
+	
+		-> java.util.stream;
+		-> it is used for processing mainly collection objects like a pipeline.
+
+		Stream s= collection.stream();
+
+		-> filter(Predicate p)-> it is used to optimize values form collection
+
+		-> collect() -> it used for collecting any type data.
+
+- Write a program to accept student objects and separate student who have age great than 18.  name, id, age.
+
+
+
+
+	
+
+
+	
