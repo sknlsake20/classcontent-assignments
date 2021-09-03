@@ -1,0 +1,29 @@
+OnlineFoodOrderingDB
+
+1. Create a Table called Restaurants
+	RestaurantID(PK,Auto), RestaurantName , RestaurantAddress , RestaurantCity , ContactNo
+2. Create a Table called RMenuItems
+	MenuID (PK , Auto) ,RestID (FK), MenuName , MenuType , MenuCategory , MenuPrice , MenuDesc
+3. Create a Table called Customers
+	CustomerID (PK, Email) , CustomerName , CustomerCity , CustomerDOB , CustomerGender , CustomerPassword
+4. Create a table called Orders
+	OrderID (PK, Auto) , CustomerID (FK) , OrderDate , DeliveryAddress , OrderStatus
+5. Create a table called OrderMenus
+	OrderID (FK) , MenuID(FK) , MenuQty , MenuPrice 
+	Note : OrderID & MenuID should be together primary key.
+
+Add some dummy data in the tables.
+
+Reports / Queries
+
+1. Show the list of Restaurant of specific city
+2. Show the list of all Restaurants along with menus (RestaurantID , RestaurantName ,MenuID , MenuName , MenuPrice)
+3. Show the list of  Restaurants along with menus (RestaurantID , RestaurantName ,MenuID , MenuName , MenuPrice) of specific city
+4. Show the list of Orders of a specific customer
+5. Show the list of orders along with ordermenus of a specific customer
+6. Show the list of latest 5 orders of a specific customer
+
+
+
+
+

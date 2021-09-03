@@ -1,0 +1,27 @@
+Develop a Bank DataBase
+-----------------------
+Tables
+-----
+1. CustomersInfo with Auto gen CustomerID
+   (CustomerID(PK) , CustomerName, CustomerCity, CustomerAddress , CustomerMobileNo(U), PAN (U), CustomerPassword )
+2. AccountInfo with auto gen AccountID
+   (AccountID(PK),CustomerID(FK),AccountType,AccountBalance,AccountOpenDate, AccountStatus(Open,Closed,Blocked)) 
+3. TransactionInfo with Auto gen TransactionID
+   (TransactionID (PK),AccountID (FK),TransactionType (D,C),Amount (>0),TransactionDate)
+
+Enter some test data (min 10 rows)
+
+Reports
+1. Latest 5 transactions of an account (Enter Account ID as an Input).
+2. Transaction between two dates of an account (Enter Account ID as an Input)
+3. List of Accounts of a Customer (Enter Customer ID as an input)
+4. List of customers(CustomerID,CustomerName,CustomerAddress,CustomerMobileNo, AccountID , AccountBalance).
+5. List of accounts with transactions (AccountID , AccountBalance , TransID , Amount, TransationType).
+6. List of customers with accounts and transations (CustomerID,CustomerName,CustomerAddress,CustomerMobileNo, AccountID , AccountBalance,TransationID , Amount, TransationType)
+
+Note : A customer can have multiple accounts. Implement data integrity.
+
+ 
+
+
+
