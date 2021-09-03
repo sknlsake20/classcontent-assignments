@@ -1,0 +1,238 @@
+MYSQL:- 
+
+	java -> student -> 100 students -> I/O operations
+		
+	Data -> relational information 
+		stdid   studentname
+
+	Database -> the way organizing data is called database.
+
+	Rdbms and non Rdbms : 
+
+	database management system:
+		-> it is application or software where data can be managed like 
+			adding, removing, update
+	RDBMS :
+	-> relational database management system
+	- it is a software or application where data is stored in form of table structure
+	- Mysql, sql server, oracle.....
+
+	-> NON - RDBMS:
+	- it is a software or applicatin where data is stored in form of grphical or map represenataion
+	- mongodb, cassandra, bigdata..... 
+	
+
+	Server : 
+		-> it is a system or software where applicatin is hosted and executes depending on request and response. 
+		-> web server
+		-> appliation server
+		-> database server
+
+		- server which hosts any kind of rdmbs or non-rdbms softwares.
+
+		local database server:
+		- server which hosts rdmbs or non- rdbms application in our own systems.
+
+	-> SQL : 
+		- Structured query language.
+		- these are commands which can used to interact with DBMS by user.
+
+	-> database users:
+		- user who interact with database.
+		- types of users:
+			- DBA
+			
+			- naive/ parametric end user
+			- System analyst
+			- sophisticated user
+			- database designer
+			- application user
+			- temporaray user
+
+	-> DBA:
+		- they define the schema and also contorls repairs, create special ussers, recovery or backup
+
+	-> Parametric end users:
+		- no knowledge about dbms but they frequently use database application
+
+			ex: swiggy users, ticket booking etc
+
+	-> System analyst:
+		- these team analyze the requirement of end users and they send satisfactory results
+	
+	-> sophisticated user:
+		- who have knowledge about databases and depending on requirement use sql queries to get data.
+
+	-> Database Designers:
+		- special organized to define schema like tables, indexes, views, constraints etc.
+
+	-> Application Program:
+		- using other languages they try to manage DBMS.
+
+	-> Temporary users:
+		- occasionally use the database but each time access database they require. 
+
+	MYSQL : 
+		
+	-data is oraganized in form of tables i.e., rows and cols.
+	- it is an open source.
+	- it is a powerful program which can handle larger set of data
+	- it is very fast and quick
+	- it supports many operating systems
+	- it is very friendly
+	- it is standard form and well formed
+	
+
+	history:
+	- it is found by michael widenius 
+	- it started in year 1979
+	- mysql 8
+	- 2018
+	
+	Names to tables, columns , database:
+	Datatypes:
+	- they specify storage space it takes with fixed length.
+	- it is type of values it represents.
+
+	types of datatypes:
+		-> Numeric data type
+
+			TINYINT -> -128 TO 127
+			SMALLINT -> -32768 TO 32767
+			MEDIUMINT -> -8388608 TO 8388607
+			INT -> -2147483648 TO 2147483647
+			BIGINT-> -9223372036854775808 TO 9223372036854775807
+
+			FLOAT(M,D)->M IS FOR LENGTH , D IS FOR NO. OF DECIMALS(24)
+			DOUBLE(M,D)-> DECIMALS(53)
+			DECIMAL(M,D)
+			BIT(M)-> M -> 1 TO 64
+			BOOL -> 1 IS FOR TRUE, 0 IS FOR FALSE
+			BOOLEAN -> 
+
+		-> Date and time data type
+
+			YEAR(2|4)-> 
+			DATE -> YYYY-MM-DD
+			TIME -> HH:MM:SS
+			DATETIME-> YYYY-MM-DD HH:MM:SS
+			TIMESTAMP(M)
+
+		-> String data type
+			CHAR(SIZE)- 255
+			VARCHAR(SIZE)- 255
+			TINYTEXT(SIZE)- 255
+			TEXT (SIZE)- 65535
+			MEDIUMTEXT(SIZE)-16777215
+			LONGTEXT - 4,294967295
+			ENUM - 65535
+			SET - CANNOT HAVE ZERO, NO DUPLICATES(64)
+
+		-> Binary Large object data type(BLOB)
+			TINYBLOB 
+			BLOB(SIZE)
+			MEDIUMBLOB
+			LONGBLOB
+
+
+		-> json data type:
+			json documents
+
+		-> statial data type:
+			POLYGON
+			GEOMETRY.......
+
+
+	variables
+		-> used for storing data or infomation while execution.
+
+		types of variables:
+		-> user defined variable
+
+			set, select
+		-> local variable -> procedures and function
+		-> system variable
+
+	operators
+	expressions
+	
+	SQL:
+	DDL: data definition lang.
+		user,index, database.....
+		
+		create, drop, alter, truncate.
+
+		create-> user-> root -> your own password (DBA) 
+
+		user management :
+		mysql -u shiva -p
+
+		-> create user <username> identified by <password>;
+		-> grant all privileges on *.* to <username>;
+		-> flush privileges;
+		-> revoke all privileges on *.* from '<username>';
+		-> show grants for <username>;
+		-> drop user <username>
+		-> select user from mysql.user;
+		-> select user();
+		-> set password for <username>=password('password');
+			OR
+		-> update mysql.user set password=password('pwd') where user =<username>;
+			OR
+		-> alter user <username> identified by 'pwd';
+
+
+		Database management:
+		-> show databases;	
+		-> create database <database_name>;
+		-> create database if not exists <database_name>;
+		-> use database_name;
+		-> drop database database_name;
+		-> mysqldump -u shiva -p personaldb > d:\hcl4\personaldb.sql
+
+		table management:
+		-> show tables;
+		-> create table student(stdid int, stdname varchar(20),stdaddress varchar(30));
+
+		-> desc <table-name>;
+		-> alter table student add(stdmob bigint);
+		-> alter table student drop stdmob;
+		-> alter table student change column stdid studentid int;		
+		-> alter table student rename to student420;	
+		-> drop table tablename; ex-> drop table student420;
+		-> truncate student;
+		
+
+		DML -> insert, update, delete, merge
+
+		->insert into student values(12,'shiva','usa');
+		->insert into student(stdname,stdaddress) values('kumar','UK');
+		->update student set stdid=23,stdaddress='hyd' where stdname='kumar';
+		->delete from student where stdid=23;
+
+		->merge -> joins 
+		
+
+
+		
+
+
+
+
+
+
+
+
+
+
+		flush privileges;
+	DML
+	DQL
+	DCL
+	TCL
+
+	constraints:
+		
+
+		
+		
