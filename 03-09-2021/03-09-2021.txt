@@ -207,10 +207,63 @@ MYSQL:-
 
 		->insert into student values(12,'shiva','usa');
 		->insert into student(stdname,stdaddress) values('kumar','UK');
+		-> insert into employee values(333,'gk',76000,'developer',87878787),(444,'kk',89000,'tester',9999999);
 		->update student set stdid=23,stdaddress='hyd' where stdname='kumar';
 		->delete from student where stdid=23;
+		->merge -> joins 	
+		
+		TCL -> commit, rollback, savepoint
 
-		->merge -> joins 
+		-> commit;
+		-> savepoint s;
+		-> rollback to savepoint s;
+		-> rollback;
+		-> set autocommit=0;
+
+		DQL : select
+		-> select * from student;
+		-> select stdid,stdname from student;
+
+		-> it can be used with where, distinct,from, order by, group by, having
+		-> select * from student where stdid>100;
+		-> select distinct stdaddress from student;
+		-> select * from student order by stdid;
+		-> select * from student order by stdid desc;
+		-> select * from student order by stdid desc,stdname asc;
+		-> select stdaddress,count(*) from student group by stdaddress;
+		-> select stdaddress,count(*) from student group by stdaddress having sum(stdid)>200;
+
+		
+		Constraints:
+		-> these are used to impose limitation or rules on columns of tables
+		-> types :
+			- primary key -> where no duplicates and not null
+			- foreign key -> child table will contain only primary key values
+			- not null -> never can be null, field cannot be empty
+			- unique -> no duplicates
+			- default -> default value to be assigned
+			- check -> checking with condition.
+			
+	- create table employee(empid int primary key, empname varchar(30) not null, empsalary double check (empsalary>0),empdesignation varchar(40) default 'employee',empmobileno bigint unique);
+
+	
+	- alter table student add constraint conssss primary key(stdid);
+	- alter table student drop primary key;
+
+	- create table permanent_employee(empid int, empname varchar(30),empsalaryperhour double,empworkemperience int,foreign key(empid) references employee(empid) on delete cascade on update cascade);
+
+	note: - every table can contain only one primary key, but can have multiple foreign key.
+
+	
+
+
+
+
+	
+
+
+
+		
 		
 
 
