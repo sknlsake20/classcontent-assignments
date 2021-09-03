@@ -1,0 +1,267 @@
+git , github, git repository:
+
+	why, when , where
+
+why: 
+
+	- it is for managing complex projects
+	- manage time depending on different modules.
+	
+
+when:
+	- linus torvalds
+	- linux inventor.
+	- 2005 -> linux kernel -> bit keeper -> no free 
+	-> git(unpleasant person) -> open source  -> 2005 december 21st
+	-> distributed source control system
+	-> maximum companies are dependent on git for managing project.
+
+	features:
+	1. open source
+	2. large and activity community
+	3. can manage very complex projects also in simpler way
+
+	Repository:
+	-> local repository -> git desktop
+	-> remote repository -> git hub
+
+
+	git config --global
+	git config --local 
+	git config --system
+		
+
+	git config --list -> configuration
+	git config --global user.email ""
+	git config --global user.name ""
+	git help config
+	clear
+	ls
+	mkdir "folder"
+	cd -> change directory
+	cd ..
+
+	git init
+	git status
+	
+	global
+	system
+	local
+
+
+	-> git flow :
+	-> cloning project from remote repository
+
+	life cycle:
+	
+	working area ->(add)-> staging area ->(commit)-> local repository ->(push)-> Remote repository
+
+	untracking - add
+	tracking
+		-> unmodified
+		-> modified
+		-> staging
+
+
+
+	add -> this will add files to staging
+	commit -> this will move files to local repository
+	push -> this will merge projet in remote repository
+	
+	-> creating project in working area and pushing it into repository.
+
+	git --bare init
+	git init
+	git status
+	git add filename filename.......
+	git add .
+	git commit -m "description"
+	git remote add origin https://github.com/mazegit/githublearning.git
+	git push -u origin master
+
+	-> cloning project form repository to local repository
+	mkdir foldername
+	cd foldername
+	git clone https://github.com/mazegit/firstproject.git
+	ls
+	cd projectfolder
+	git status
+		- no commits
+		- make changes
+	git status 
+		- files modified
+	git add filesmadechanges
+	git status
+	git commit -m "what changes we made"'
+	git push orgin master
+
+	-> using eclipse understanding push, pull, merge....
+		-> Manager role:
+			- create a project
+			- create local repository
+			- add files for staging
+			- commit to local repository
+			- push them to remote repository
+			- inform contributors to take the project	
+
+		uer: shiva_arutla@maznetsolution.com
+	
+		-> Developer role:user mazesolutions1@gmail.com
+
+			- clone remote repostiory shared by manager
+			- clone project into git workspace 
+			- import project
+			- changes made to project
+			- create new branch in local repository
+			- add files to staging
+			- commit to local repository
+			- push to remote repository(developer)
+			- review push dont to manager
+
+-----------------------------------------------------------------------------------------
+
+Log4j or junit
+
+log4j :
+
+Diffent types of environments in application:
+		-> Developement
+		-> QA 
+		-> production
+		-> client
+
+	informataion -> success, error, warning, fatal error.
+
+	-> disadvantage:
+		- usage of System.out.println will slows execution process
+		- limitation at console level only
+		- console can print only 200 line of execution.
+		
+	log4j resolves all the issues: by Logging message
+		-> any environment message can be printed
+		-> it can be saved in file, database, mail, console
+
+	Logging: 
+		-> It is a process of giving / fetching message from server while it is getting executed or running.
+
+		-> log4j is logging tool
+
+	
+	Log4j componets :
+		-> Logger(which class)
+		- this object has to be created inside a class where message is required.
+		- model -> student -> getter/setter -> logger object is not required.
+		- classes which contain services, controls -> logger object is must.
+		
+		
+		-> Appender(where message to be printed)
+		- it gets message to be triggered in console, file, database,ftp, smtp
+		- appenders can be multiple.
+
+		- implemented class
+			-> ConsoleAppender
+			-> FileAppender
+			-> JdbcAppender
+			-> FtpAppender
+			-> SmtpAppender
+			
+		-> Layout(format)
+		- it specifies the complete format of message to be printed either in any appender.
+			- SimpleLayout(general text)
+			- HTMLLayout(print data in table section in HTML tags)
+			- XMLLayout(prints data in xml tags)
+			- PatternLayout(we can specify our own patter)
+
+		Priority Message:
+
+		1. DEBUG -> success information
+		2. INFO -> level of status
+		3. WARN -> warning message
+		4. ERROR -> exceptions
+		5. FATAL -> unrectified system errors
+		6. OFF	-> na
+
+
+
+Junit:
+
+	-> it is a best tool for unit testing.
+	-> To check continuity of work intiate further without any unexpected disturbances
+	-> every IDE by default contains Junit support.
+
+	Testing flowing:
+	-> prepare method
+	-> provide testing inputs
+	-> run test
+	-> compare actual value with expected value.
+	-> verify result
+	-> alert if test result fails.
+
+	junit framework:
+	 -> it provide all testing flow steps in java.
+	 -> Junit jar file -> junit 4 is oldest version(past 13 years)
+	-> junit 5 it is new version and supports java 8 features.
+
+	junit Architecture:
+
+		- JUPITER API
+		- VINTAGE API
+		- EXTERNAL API
+
+	@Test:
+
+		- it enables test cases to executed automatically when ever class is run.
+		
+	assert methods:
+
+		- assertEquals();
+		- assertTrue();
+		- assertFalse();
+		- assertNotNull();
+		- assertNull();
+		- assertSame();
+		- assertNotSame();
+		- assertArrayEquals();
+		- assertException();
+
+	Test Life Cycle:
+
+	-> testAdd
+	-> testAreaOfCircle
+	-> testDivision
+
+	-> annotations for maintaining life cycle:
+		-> @BeforeAll
+		-> @AfterAll
+		-> @BeforeEach
+		-> @AfterEach
+
+
+
+	
+
+
+
+	
+
+	
+
+
+
+
+
+
+		
+
+
+		
+	
+
+
+
+		
+
+
+	
+
+	

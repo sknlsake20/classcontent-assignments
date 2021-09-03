@@ -1,0 +1,5 @@
+DEBUG	2021-09-02 15:54:26,077	0	com.src.MainClass	[main]	student object created
+INFO	2021-09-02 15:54:26,082	5	com.src.MainClass	[main]	information printed
+WARN	2021-09-02 15:54:26,083	6	com.src.MainClass	[main]	warning message printed
+ERROR	2021-09-02 15:54:26,083	6	com.src.MainClass	[main]	error message printed
+FATAL	2021-09-02 15:54:26,083	6	com.src.MainClass	[main]	fatal message printed
