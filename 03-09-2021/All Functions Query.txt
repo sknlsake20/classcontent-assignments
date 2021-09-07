@@ -1,0 +1,1569 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.19 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use student;
+Database changed
+mysql> select ascii;
+ERROR 1054 (42S22): Unknown column 'ascii' in 'field list'
+mysql> select ascii('k');
++------------+
+| ascii('k') |
++------------+
+|        107 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select ascii('king');
++---------------+
+| ascii('king') |
++---------------+
+|           107 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select char_length('king');
++---------------------+
+| char_length('king') |
++---------------------+
+|                   4 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select char_length(NULL);
++-------------------+
+| char_length(NULL) |
++-------------------+
+|              NULL |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select concat('hii','king');
++----------------------+
+| concat('hii','king') |
++----------------------+
+| hiiking              |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select concat_ws('hii','king');
++-------------------------+
+| concat_ws('hii','king') |
++-------------------------+
+| king                    |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> select field('a','b','c','d','a');
++----------------------------+
+| field('a','b','c','d','a') |
++----------------------------+
+|                          4 |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select field(2,3,4,5,2);
++------------------+
+| field(2,3,4,5,2) |
++------------------+
+|                4 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select field('all','is','well','all');
++--------------------------------+
+| field('all','is','well','all') |
++--------------------------------+
+|                              3 |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select find_in_set('s','a,b,d,v,n,s');
++--------------------------------+
+| find_in_set('s','a,b,d,v,n,s') |
++--------------------------------+
+|                              6 |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select format(6789.7890.3);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.3)' at line 1
+mysql> select format(6789.7890,3);
++---------------------+
+| format(6789.7890,3) |
++---------------------+
+| 6,789.789           |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select format(6789.7890,2);
++---------------------+
+| format(6789.7890,2) |
++---------------------+
+| 6,789.79            |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select format(6789.7890,0);
++---------------------+
+| format(6789.7890,0) |
++---------------------+
+| 6,790               |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> slect insert('welcome to home',12,4,'garden');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'slect insert('welcome to home',12,4,'garden')' at line 1
+mysql> select insert('welcome to home',12,4,'garden');
++-----------------------------------------+
+| insert('welcome to home',12,4,'garden') |
++-----------------------------------------+
+| welcome to garden                       |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select instr('welcome to home','home');
++---------------------------------+
+| instr('welcome to home','home') |
++---------------------------------+
+|                              12 |
++---------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select left('welcome to home',7);
++---------------------------+
+| left('welcome to home',7) |
++---------------------------+
+| welcome                   |
++---------------------------+
+1 row in set (0.00 sec)
+
+mysql> select right('welcome to home',4);
++----------------------------+
+| right('welcome to home',4) |
++----------------------------+
+| home                       |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select length('welcome to home');
++---------------------------+
+| length('welcome to home') |
++---------------------------+
+|                        15 |
++---------------------------+
+1 row in set (0.00 sec)
+
+mysql> select locate('l','welcome to home');
++-------------------------------+
+| locate('l','welcome to home') |
++-------------------------------+
+|                             3 |
++-------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select lower('WELCOME TO SWEET HOME');
++--------------------------------+
+| lower('WELCOME TO SWEET HOME') |
++--------------------------------+
+| welcome to sweet home          |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select lcase('WELCOME TO SWEET HOME');
++--------------------------------+
+| lcase('WELCOME TO SWEET HOME') |
++--------------------------------+
+| welcome to sweet home          |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select ucase('welcome to sweet home');
++--------------------------------+
+| ucase('welcome to sweet home') |
++--------------------------------+
+| WELCOME TO SWEET HOME          |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select upper('welcome to sweet home');
++--------------------------------+
+| upper('welcome to sweet home') |
++--------------------------------+
+| WELCOME TO SWEET HOME          |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select lpad('welcome',15,'*');
++------------------------+
+| lpad('welcome',15,'*') |
++------------------------+
+| ********welcome        |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select ltrim('     welcome');
++-----------------------+
+| ltrim('     welcome') |
++-----------------------+
+| welcome               |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select mid('welcome to sweet garden',12,12);
++--------------------------------------+
+| mid('welcome to sweet garden',12,12) |
++--------------------------------------+
+| sweet garden                         |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select mid('welcome to sweet garden',-4,4);
++-------------------------------------+
+| mid('welcome to sweet garden',-4,4) |
++-------------------------------------+
+| rden                                |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select position('to' in 'welcome to sweet garden');
++---------------------------------------------+
+| position('to' in 'welcome to sweet garden') |
++---------------------------------------------+
+|                                           9 |
++---------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select repeat('to',2);
++----------------+
+| repeat('to',2) |
++----------------+
+| toto           |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select replace('welcome to sweet garden','to','too');
++-----------------------------------------------+
+| replace('welcome to sweet garden','to','too') |
++-----------------------------------------------+
+| welcome too sweet garden                      |
++-----------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select reverse (789);
++---------------+
+| reverse (789) |
++---------------+
+| 987           |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select rpad('welcome',10,'*');
++------------------------+
+| rpad('welcome',10,'*') |
++------------------------+
+| welcome***             |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select space(12);
++--------------+
+| space(12)    |
++--------------+
+|              |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select strcmp('welcome','welcome');
++-----------------------------+
+| strcmp('welcome','welcome') |
++-----------------------------+
+|                           0 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select strcmp('welcome','welcometo');
++-------------------------------+
+| strcmp('welcome','welcometo') |
++-------------------------------+
+|                            -1 |
++-------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select strcmp('welcometoo','welcometo');
++----------------------------------+
+| strcmp('welcometoo','welcometo') |
++----------------------------------+
+|                                1 |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select substr('welcome to beautiful garden',12);
++------------------------------------------+
+| substr('welcome to beautiful garden',12) |
++------------------------------------------+
+| beautiful garden                         |
++------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select substring('welcome to beautiful garden',7,12);
++-----------------------------------------------+
+| substring('welcome to beautiful garden',7,12) |
++-----------------------------------------------+
+| e to beautif                                  |
++-----------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select substring_index('welcome-to-beautiful-garden','-',2);
++------------------------------------------------------+
+| substring_index('welcome-to-beautiful-garden','-',2) |
++------------------------------------------------------+
+| welcome-to                                           |
++------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select substring_index('welcome-to-beautiful-garden','-',-2);
++-------------------------------------------------------+
+| substring_index('welcome-to-beautiful-garden','-',-2) |
++-------------------------------------------------------+
+| beautiful-garden                                      |
++-------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select trim(leading '0' from '001245');
++---------------------------------+
+| trim(leading '0' from '001245') |
++---------------------------------+
+| 1245                            |
++---------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select trim(trailing '0' from '0012450000');
++--------------------------------------+
+| trim(trailing '0' from '0012450000') |
++--------------------------------------+
+| 001245                               |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select trim(both '0' from '0012450000');
++----------------------------------+
+| trim(both '0' from '0012450000') |
++----------------------------------+
+| 1245                             |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select abs(-78);
++----------+
+| abs(-78) |
++----------+
+|       78 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select abs(-78.67*3);
++---------------+
+| abs(-78.67*3) |
++---------------+
+|        236.01 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select acos(3);
++---------+
+| acos(3) |
++---------+
+|    NULL |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select acos(0.44);
++--------------------+
+| acos(0.44)         |
++--------------------+
+| 1.1151976533990733 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select asin(0.44);
++--------------------+
+| asin(0.44)         |
++--------------------+
+| 0.4555986733958234 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select atan(0.90);
++--------------------+
+| atan(0.90)         |
++--------------------+
+| 0.7328151017865066 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select atan2(0.90,3);
++--------------------+
+| atan2(0.90,3)      |
++--------------------+
+| 0.2914567944778671 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> slect * from employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'slect * from employee' at line 1
+mysql> select * from employee;
+ERROR 1146 (42S02): Table 'student.employee' doesn't exist
+mysql> use employee;
+Database changed
+mysql> select * from employee;
++-------+---------+------------+-----------+------------------+--------------+------------+-------------+--------+
+| empid | empname | empdob     | empsalary | empdesignation   | empstartdate | empenddate | managername | deptid |
++-------+---------+------------+-----------+------------------+--------------+------------+-------------+--------+
+|    40 | kavi    | 2000-01-09 |     10000 | softwareengineer | 1990-09-09   | 2090-09-09 | raghav      |     90 |
+|    41 | kowsy   | 1999-12-25 |     10000 | softwareengineer | 1990-12-25   | 2070-12-25 | sujatha     |     85 |
+|    43 | kiki    | 2000-07-28 |     15000 | softwareengineer | 1990-07-28   | 2080-07-28 | antony      |     90 |
+|    49 | moni    | 1999-11-02 |     10000 | softwareengineer | 1990-07-28   | 2070-06-09 | anushka     |     80 |
++-------+---------+------------+-----------+------------------+--------------+------------+-------------+--------+
+4 rows in set (0.03 sec)
+
+mysql> select avg(empsalary) as "average Salary" from employee;
++----------------+
+| average Salary |
++----------------+
+|     11250.0000 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select ceil(56.89);
++-------------+
+| ceil(56.89) |
++-------------+
+|          57 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select ceil(-56.89);
++--------------+
+| ceil(-56.89) |
++--------------+
+|          -56 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select ceiling(-56.89);
++-----------------+
+| ceiling(-56.89) |
++-----------------+
+|             -56 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select ceiling(56.89);
++----------------+
+| ceiling(56.89) |
++----------------+
+|             57 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select cos(0.56);
++--------------------+
+| cos(0.56)          |
++--------------------+
+| 0.8472551110134161 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select cot(0.56);
++--------------------+
+| cot(0.56)          |
++--------------------+
+| 1.5950247094703485 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee;
++-------+---------+------------+-----------+------------------+--------------+------------+-------------+--------+
+| empid | empname | empdob     | empsalary | empdesignation   | empstartdate | empenddate | managername | deptid |
++-------+---------+------------+-----------+------------------+--------------+------------+-------------+--------+
+|    40 | kavi    | 2000-01-09 |     10000 | softwareengineer | 1990-09-09   | 2090-09-09 | raghav      |     90 |
+|    41 | kowsy   | 1999-12-25 |     10000 | softwareengineer | 1990-12-25   | 2070-12-25 | sujatha     |     85 |
+|    43 | kiki    | 2000-07-28 |     15000 | softwareengineer | 1990-07-28   | 2080-07-28 | antony      |     90 |
+|    49 | moni    | 1999-11-02 |     10000 | softwareengineer | 1990-07-28   | 2070-06-09 | anushka     |     80 |
++-------+---------+------------+-----------+------------------+--------------+------------+-------------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select count(empid) from employee;
++--------------+
+| count(empid) |
++--------------+
+|            4 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select degrees(3);
++--------------------+
+| degrees(3)         |
++--------------------+
+| 171.88733853924697 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select 24 div 4;
++----------+
+| 24 div 4 |
++----------+
+|        6 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select 25.6 div 4;
++------------+
+| 25.6 div 4 |
++------------+
+|          6 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select exp(2);
++------------------+
+| exp(2)           |
++------------------+
+| 7.38905609893065 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select floor(34.6);
++-------------+
+| floor(34.6) |
++-------------+
+|          34 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select ceil(34.1);
++------------+
+| ceil(34.1) |
++------------+
+|         35 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select greatest(12,23,45,56,67,89);
++-----------------------------+
+| greatest(12,23,45,56,67,89) |
++-----------------------------+
+|                          89 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select least(12,23,45,56,67,89);
++--------------------------+
+| least(12,23,45,56,67,89) |
++--------------------------+
+|                       12 |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> select ln(1);
++-------+
+| ln(1) |
++-------+
+|     0 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select log(7);
++--------------------+
+| log(7)             |
++--------------------+
+| 1.9459101490553132 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select log(2);
++--------------------+
+| log(2)             |
++--------------------+
+| 0.6931471805599453 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select log(2,10);
++--------------------+
+| log(2,10)          |
++--------------------+
+| 3.3219280948873626 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select log10(2);
++--------------------+
+| log10(2)           |
++--------------------+
+| 0.3010299956639812 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select log2(7);
++-------------------+
+| log2(7)           |
++-------------------+
+| 2.807354922057604 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select max(empsalary) as "Highest Salary" from employee;
++----------------+
+| Highest Salary |
++----------------+
+|          15000 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select min(empsalary) as "Highest Salary" from employee;
++----------------+
+| Highest Salary |
++----------------+
+|          10000 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select mod(33,3);
++-----------+
+| mod(33,3) |
++-----------+
+|         0 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select mod(30,3);
++-----------+
+| mod(30,3) |
++-----------+
+|         0 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select mod(20,3);
++-----------+
+| mod(20,3) |
++-----------+
+|         2 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select PI()*2;
++----------+
+| PI()*2   |
++----------+
+| 6.283185 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select PI()*4;
++-----------+
+| PI()*4    |
++-----------+
+| 12.566371 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select pow(3,2);
++----------+
+| pow(3,2) |
++----------+
+|        9 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select power(5,2);
++------------+
+| power(5,2) |
++------------+
+|         25 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select radians(55);
++--------------------+
+| radians(55)        |
++--------------------+
+| 0.9599310885968813 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select rand(5);
++---------------------+
+| rand(5)             |
++---------------------+
+| 0.40613597483014313 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select round(670.34,0);
++-----------------+
+| round(670.34,0) |
++-----------------+
+|             670 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select round(670.34,3);
++-----------------+
+| round(670.34,3) |
++-----------------+
+|         670.340 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select round(670.34,1);
++-----------------+
+| round(670.34,1) |
++-----------------+
+|           670.3 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select round(670.34,-1);
++------------------+
+| round(670.34,-1) |
++------------------+
+|              670 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select round(670.34,-3);
++------------------+
+| round(670.34,-3) |
++------------------+
+|             1000 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select sign(-15);
++-----------+
+| sign(-15) |
++-----------+
+|        -1 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select sign(15);
++----------+
+| sign(15) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select sign(0);
++---------+
+| sign(0) |
++---------+
+|       0 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select sqrt(4);
++---------+
+| sqrt(4) |
++---------+
+|       2 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select sin(2);
++--------------------+
+| sin(2)             |
++--------------------+
+| 0.9092974268256817 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select sqrt(44.66);
++--------------------+
+| sqrt(44.66)        |
++--------------------+
+| 6.6828137786414485 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(empsalary) as" total Salary" from employee where empsalary>5000;
++--------------+
+| total Salary |
++--------------+
+|        45000 |
++--------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select sum(distinct empsalary) as" total Salary" from employee where empsalary>5000;
++--------------+
+| total Salary |
++--------------+
+|        25000 |
++--------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select tan(9);
++----------------------+
+| tan(9)               |
++----------------------+
+| -0.45231565944180985 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select truncate(123.978,0);
++---------------------+
+| truncate(123.978,0) |
++---------------------+
+|                 123 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select truncate(123.978,2);
++---------------------+
+| truncate(123.978,2) |
++---------------------+
+|              123.97 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select truncate(123.978,-2);
++----------------------+
+| truncate(123.978,-2) |
++----------------------+
+|                  100 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select bin(5);
++--------+
+| bin(5) |
++--------+
+| 101    |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select binary('welcome');
++--------------------------------------+
+| binary('welcome')                    |
++--------------------------------------+
+| 0x77656C636F6D65                     |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select binary 'WELCOME'='welcome';
++----------------------------+
+| binary 'WELCOME'='welcome' |
++----------------------------+
+|                          0 |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select cast(123 as char);
++-------------------+
+| cast(123 as char) |
++-------------------+
+| 123               |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select cast(4 as binary);
++--------------------------------------+
+| cast(4 as binary)                    |
++--------------------------------------+
+| 0x34                                 |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select coalesce(null,null,'s','r','i',null);
++--------------------------------------+
+| coalesce(null,null,'s','r','i',null) |
++--------------------------------------+
+| s                                    |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select connection_id();
++-----------------+
+| connection_id() |
++-----------------+
+|              10 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select conv(8,10,2);
++--------------+
+| conv(8,10,2) |
++--------------+
+| 1000         |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select conv(111,2,10);
++----------------+
+| conv(111,2,10) |
++----------------+
+| 7              |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select convert(-1,signed);
++--------------------+
+| convert(-1,signed) |
++--------------------+
+|                 -1 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select convert(-1,unsigned);
++----------------------+
+| convert(-1,unsigned) |
++----------------------+
+| 18446744073709551615 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select current_user();
++----------------+
+| current_user() |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select database();
++------------+
+| database() |
++------------+
+| employee   |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select if(100<333,'yes','no');
++------------------------+
+| if(100<333,'yes','no') |
++------------------------+
+| yes                    |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select ifnull('car','welcome');
++-------------------------+
+| ifnull('car','welcome') |
++-------------------------+
+| car                     |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> select ifnull(null,'welcome');
++------------------------+
+| ifnull(null,'welcome') |
++------------------------+
+| welcome                |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select isnull('welcome');
++-------------------+
+| isnull('welcome') |
++-------------------+
+|                 0 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select isnull(null);
++--------------+
+| isnull(null) |
++--------------+
+|            1 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee;
++-------+---------+------------+-----------+------------------+--------------+------------+-------------+--------+
+| empid | empname | empdob     | empsalary | empdesignation   | empstartdate | empenddate | managername | deptid |
++-------+---------+------------+-----------+------------------+--------------+------------+-------------+--------+
+|    40 | kavi    | 2000-01-09 |     10000 | softwareengineer | 1990-09-09   | 2090-09-09 | raghav      |     90 |
+|    41 | kowsy   | 1999-12-25 |     10000 | softwareengineer | 1990-12-25   | 2070-12-25 | sujatha     |     85 |
+|    43 | kiki    | 2000-07-28 |     15000 | softwareengineer | 1990-07-28   | 2080-07-28 | antony      |     90 |
+|    49 | moni    | 1999-11-02 |     10000 | softwareengineer | 1990-07-28   | 2070-06-09 | anushka     |     80 |
++-------+---------+------------+-----------+------------------+--------------+------------+-------------+--------+
+4 rows in set (0.00 sec)
+
+mysql> slect last_insert_id();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'slect last_insert_id()' at line 1
+mysql> select last_insert_id();
++------------------+
+| last_insert_id() |
++------------------+
+|                0 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select nullif('car','car');
++---------------------+
+| nullif('car','car') |
++---------------------+
+| NULL                |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select nullif('car',5);
++-----------------+
+| nullif('car',5) |
++-----------------+
+| car             |
++-----------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select session_user();
++----------------+
+| session_user() |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select system_user();
++----------------+
+| system_user()  |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select user();
++----------------+
+| user()         |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select version();
++-----------+
+| version() |
++-----------+
+| 8.0.19    |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select md5('welcome');
++----------------------------------+
+| md5('welcome')                   |
++----------------------------------+
+| 40be4e59b9a2a2b5dffb918c0e86b3d7 |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select adddate('2000-01-09' interval 24 day);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'interval 24 day)' at line 1
+mysql> select adddate('2000-01-09', interval 24 day);
++----------------------------------------+
+| adddate('2000-01-09', interval 24 day) |
++----------------------------------------+
+| 2000-02-02                             |
++----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select adddate('2000-01-09', interval -2 month);
++------------------------------------------+
+| adddate('2000-01-09', interval -2 month) |
++------------------------------------------+
+| 1999-11-09                               |
++------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select addtime('2000-01-09 09:22:21.000001','2.000021');
++--------------------------------------------------+
+| addtime('2000-01-09 09:22:21.000001','2.000021') |
++--------------------------------------------------+
+| 2000-01-09 09:22:23.000022                       |
++--------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select curdate();
++------------+
+| curdate()  |
++------------+
+| 2021-09-07 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select curdate_date();
+ERROR 1305 (42000): FUNCTION employee.curdate_date does not exist
+mysql> select current_date();
++----------------+
+| current_date() |
++----------------+
+| 2021-09-07     |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select current_time();
++----------------+
+| current_time() |
++----------------+
+| 01:50:06       |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select current_timestamp();
++---------------------+
+| current_timestamp() |
++---------------------+
+| 2021-09-07 01:50:16 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select curtime();
++-----------+
+| curtime() |
++-----------+
+| 01:50:38  |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select date('2017-10-06');
++--------------------+
+| date('2017-10-06') |
++--------------------+
+| 2017-10-06         |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select date
+    -> _add('2014-11-18 09:44:21', INTERVAL -20 SECOND);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('2014-11-18 09:44:21', INTERVAL -20 SECOND)' at line 2
+mysql> select date_add('2014-02-18 09:44:21', INTERVAL -20 SECOND);
++------------------------------------------------------+
+| date_add('2014-02-18 09:44:21', INTERVAL -20 SECOND) |
++------------------------------------------------------+
+| 2014-02-18 09:44:01                                  |
++------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_format('2000-01-09','%M %D,%Y);
+    '> select date_format('2000-01-09','%M %D,%Y');
+    '> end
+    '> 2from employee;
+    '> from employee';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '2000-01-09','%M %D,%Y');
+end
+2from employee;
+from employee'' at line 2
+mysql> select date_format('2000-01-09','%M  %D , %Y');
++-----------------------------------------+
+| date_format('2000-01-09','%M  %D , %Y') |
++-----------------------------------------+
+| January  9th , 2000                     |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_sub('2000-01-09 03:55:21',INTERVAL 20 SECOND);
++----------------------------------------------------+
+| date_sub('2000-01-09 03:55:21',INTERVAL 20 SECOND) |
++----------------------------------------------------+
+| 2000-01-09 03:55:01                                |
++----------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select datediff('2000-01-09','2021-09-06');
++-------------------------------------+
+| datediff('2000-01-09','2021-09-06') |
++-------------------------------------+
+|                               -7911 |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select day('2014-11-18');
++-------------------+
+| day('2014-11-18') |
++-------------------+
+|                18 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select dayname('2014-11-18');
++-----------------------+
+| dayname('2014-11-18') |
++-----------------------+
+| Tuesday               |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select dayname('2014-11-19');
++-----------------------+
+| dayname('2014-11-19') |
++-----------------------+
+| Wednesday             |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select dayofmonth('2014-11-19');
++--------------------------+
+| dayofmonth('2014-11-19') |
++--------------------------+
+|                       19 |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> select dayofweek('2014-11-19');
++-------------------------+
+| dayofweek('2014-11-19') |
++-------------------------+
+|                       4 |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> select dayoftyear('2014-11-19');
+ERROR 1305 (42000): FUNCTION employee.dayoftyear does not exist
+mysql> select dayoftyear('2014-02-19');
+ERROR 1305 (42000): FUNCTION employee.dayoftyear does not exist
+mysql> select dayofyear('2000-01-09');
++-------------------------+
+| dayofyear('2000-01-09') |
++-------------------------+
+|                       9 |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> select extract(second from '2000-01-09 03:55:21');
++--------------------------------------------+
+| extract(second from '2000-01-09 03:55:21') |
++--------------------------------------------+
+|                                         21 |
++--------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select from_days(67890);
++------------------+
+| from_days(67890) |
++------------------+
+| 0185-11-16       |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select hour('2000-01-09 03:55:21');
++-----------------------------+
+| hour('2000-01-09 03:55:21') |
++-----------------------------+
+|                           3 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select last_day('2000-01-09');
++------------------------+
+| last_day('2000-01-09') |
++------------------------+
+| 2000-01-31             |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select localtime();
++---------------------+
+| localtime()         |
++---------------------+
+| 2021-09-07 02:04:40 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select localtimestamp();
++---------------------+
+| localtimestamp()    |
++---------------------+
+| 2021-09-07 02:04:56 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select makedate(2017,27);
++-------------------+
+| makedate(2017,27) |
++-------------------+
+| 2017-01-27        |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select maketime(12,45,7);
++-------------------+
+| maketime(12,45,7) |
++-------------------+
+| 12:45:07          |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select microsecond('2000-01-09 03:55:21.0000001');
++--------------------------------------------+
+| microsecond('2000-01-09 03:55:21.0000001') |
++--------------------------------------------+
+|                                          0 |
++--------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select microsecond('2000-01-09 03:55:21.000001');
++-------------------------------------------+
+| microsecond('2000-01-09 03:55:21.000001') |
++-------------------------------------------+
+|                                         1 |
++-------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select minute('2000-01-09 03:55:21.000001');
++--------------------------------------+
+| minute('2000-01-09 03:55:21.000001') |
++--------------------------------------+
+|                                   55 |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select month('2000-01-09 03:55:21.000001');
++-------------------------------------+
+| month('2000-01-09 03:55:21.000001') |
++-------------------------------------+
+|                                   1 |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select monthname('2000-01-09 03:55:21.000001');
++-----------------------------------------+
+| monthname('2000-01-09 03:55:21.000001') |
++-----------------------------------------+
+| January                                 |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select now();
++---------------------+
+| now()               |
++---------------------+
+| 2021-09-07 02:07:39 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select period_add(201409,5);
++----------------------+
+| period_add(201409,5) |
++----------------------+
+|               201502 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select period_diff(201409,201509);
++----------------------------+
+| period_diff(201409,201509) |
++----------------------------+
+|                        -12 |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select period_diff(201409,201400);
+ERROR 1210 (HY000): Incorrect arguments to period_diff
+mysql> select period_diff(201409,201402);
++----------------------------+
+| period_diff(201409,201402) |
++----------------------------+
+|                          7 |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select quarter('2014-07-15');
++-----------------------+
+| quarter('2014-07-15') |
++-----------------------+
+|                     3 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select sec_to_time(80001);
++--------------------+
+| sec_to_time(80001) |
++--------------------+
+| 22:13:21           |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select sec_to_time(8001);
++-------------------+
+| sec_to_time(8001) |
++-------------------+
+| 02:13:21          |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select second('2000-01-09 03:55:21.000001');
++--------------------------------------+
+| second('2000-01-09 03:55:21.000001') |
++--------------------------------------+
+|                                   21 |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select str_to_date('January 09,2000',%M %d %Y');
+    '> end
+    '> from employee;
+    '> from employee';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%M %d %Y');
+end
+from employee;
+from employee'' at line 1
+mysql> select str_to_date('January 09,2000','%M %d %Y');
++-------------------------------------------+
+| str_to_date('January 09,2000','%M %d %Y') |
++-------------------------------------------+
+| NULL                                      |
++-------------------------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select str_to_date('January 09 2000','%M %d %Y');
++-------------------------------------------+
+| str_to_date('January 09 2000','%M %d %Y') |
++-------------------------------------------+
+| 2000-01-09                                |
++-------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select subdate('2014-02-18 09:44:21', INTERVAL 20 day);
++-------------------------------------------------+
+| subdate('2014-02-18 09:44:21', INTERVAL 20 day) |
++-------------------------------------------------+
+| 2014-01-29 09:44:21                             |
++-------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select subtime('2014-02-18 09:44:21.000002', '2.000001');
++---------------------------------------------------+
+| subtime('2014-02-18 09:44:21.000002', '2.000001') |
++---------------------------------------------------+
+| 2014-02-18 09:44:19.000001                        |
++---------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select sysdate();
++---------------------+
+| sysdate()           |
++---------------------+
+| 2021-09-07 02:16:12 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select time('2014-02-18 09:44:21');
++-----------------------------+
+| time('2014-02-18 09:44:21') |
++-----------------------------+
+| 09:44:21                    |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select time_format('12;34;21','%n %i %s %p');
++---------------------------------------+
+| time_format('12;34;21','%n %i %s %p') |
++---------------------------------------+
+| n 00 12 AM                            |
++---------------------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select time_format('12:34:21','%n %i %s %p');
++---------------------------------------+
+| time_format('12:34:21','%n %i %s %p') |
++---------------------------------------+
+| n 34 21 PM                            |
++---------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select time_to_sec('12:34:21');
++-------------------------+
+| time_to_sec('12:34:21') |
++-------------------------+
+|                   45261 |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> select timediff('12:34:21','09:44:21');
++---------------------------------+
+| timediff('12:34:21','09:44:21') |
++---------------------------------+
+| 02:50:00                        |
++---------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select timestamp('12:34:21','09:44:21');
++----------------------------------+
+| timestamp('12:34:21','09:44:21') |
++----------------------------------+
+| NULL                             |
++----------------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select to_days('09-01-2000');
++-----------------------+
+| to_days('09-01-2000') |
++-----------------------+
+|                  NULL |
++-----------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select week('09-01-2000');
++--------------------+
+| week('09-01-2000') |
++--------------------+
+|               NULL |
++--------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select week('2000-04-20');
++--------------------+
+| week('2000-04-20') |
++--------------------+
+|                 16 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select weekend('2000-04-20');
+ERROR 1305 (42000): FUNCTION employee.weekend does not exist
+mysql> select weekday('2000-04-20');
++-----------------------+
+| weekday('2000-04-20') |
++-----------------------+
+|                     3 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select weekofyear('2000-04-20');
++--------------------------+
+| weekofyear('2000-04-20') |
++--------------------------+
+|                       16 |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> select year('2003-07-15','09:44:21');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ','09:44:21')' at line 1
+mysql> select year('2003-07-15 09:44:21');
++-----------------------------+
+| year('2003-07-15 09:44:21') |
++-----------------------------+
+|                        2003 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select yearweek('2003-07-15');
++------------------------+
+| yearweek('2003-07-15') |
++------------------------+
+|                 200328 |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql>

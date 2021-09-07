@@ -1,0 +1,410 @@
+OnlineFoodOrderingDB
+
+mysql> create database OnlineFoodorderingDB;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use OnlineFoodorderingDB;
+Database changed
+
+1. Create a Table called Restaurants
+	RestaurantID(PK,Auto), RestaurantName , RestaurantAddress , RestaurantCity , ContactNo
+
+Answer: 
+mysql> create table Restaurants(RestaurantID int primary key AUTO_INCREMENT,RestaurantName varchar(20) not null,RestaurantAddress varchar(50) not null,RestaurantCity varchar(20) not null,ContactNo bigint unique);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> insert into Restaurants(RestaurantName,RestaurantAddress,RestaurantCity,ContactNo) values('blind chemistry','besant nagar','chennai',9876543210);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Restaurants(RestaurantName,RestaurantAddress,RestaurantCity,ContactNo) values('Saravana Bhavan','gandhi road','chennai',9080706050);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Restaurants(RestaurantName,RestaurantAddress,RestaurantCity,ContactNo) values('thalappakatti','kelambakkam','chennai',9181716151);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Restaurants(RestaurantName,RestaurantAddress,RestaurantCity,ContactNo) values('cool barbeqecues','t.nagar','chennai',9282726252);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from Restaurants;
++--------------+------------------+-------------------+----------------+------------+
+| RestaurantID | RestaurantName   | RestaurantAddress | RestaurantCity | ContactNo  |
++--------------+------------------+-------------------+----------------+------------+
+|            1 | blind chemistry  | besant nagar      | chennai        | 9876543210 |
+|            2 | Saravana Bhavan  | gandhi road       | chennai        | 9080706050 |
+|            3 | thalappakatti    | kelambakkam       | chennai        | 9181716151 |
+|            4 | cool barbeqecues | t.nagar           | chennai        | 9282726252 |
++--------------+------------------+-------------------+----------------+------------+
+4 rows in set (0.00 sec)
+
+2. Create a Table called RMenuItems
+	MenuID (PK , Auto) ,RestID (FK), MenuName , MenuType , MenuCategory , MenuPrice , MenuDesc
+Answer:
+create table RMenuItems(MenuID int primary key Auto_increment,RestID int,MenuName varchar(20) not null, MenuType varchar(40) not null, MenuCategory varchar(30), MenuPrice int not null, MenuDesc varchar(20),foreign key(RestID) references Restaurants(RestaurantID));
+Query OK, 0 rows affected (0.23 sec)
+
+mysql> desc table RMenuItems;
++----+-------------+------------+------------+------+---------------+------+---------+------+------+----------+-------+
+| id | select_type | table      | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra |
++----+-------------+------------+------------+------+---------------+------+---------+------+------+----------+-------+
+|  1 | SIMPLE      | RMenuItems | NULL       | ALL  | NULL          | NULL | NULL    | NULL |    1 |   100.00 | NULL  |
++----+-------------+------------+------------+------+---------------+------+---------+------+------+----------+-------+
+1 row in set, 1 warning (0.01 sec)
+
+mysql> desc RMenuItems;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| MenuID       | int         | NO   | PRI | NULL    | auto_increment |
+| RestID       | int         | YES  | MUL | NULL    |                |
+| MenuName     | varchar(20) | NO   |     | NULL    |                |
+| MenuType     | varchar(40) | NO   |     | NULL    |                |
+| MenuCategory | varchar(30) | YES  |     | NULL    |                |
+| MenuPrice    | int         | NO   |     | NULL    |                |
+| MenuDesc     | varchar(20) | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+7 rows in set (0.01 sec)
+
+mysql> insert into RMenuItems(MenuName,MenuType,MenuCategory,MenuPrice,MenuDesc) values('beverages','juice','4star',500,'good');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into RMenuItems(MenuName,MenuType,MenuCategory,MenuPrice,MenuDesc) values('idlydosa','tiffin','4star',1000,'good');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into RMenuItems(MenuName,MenuType,MenuCategory,MenuPrice,MenuDesc) values('briyani','meal','3star',5000,'average');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into RMenuItems(MenuName,MenuType,MenuCategory,MenuPrice,MenuDesc) values('all-in-one','all','5star',800,'awesome');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from RMenuItems;
++--------+--------+------------+----------+--------------+-----------+----------+
+| MenuID | RestID | MenuName   | MenuType | MenuCategory | MenuPrice | MenuDesc |
++--------+--------+------------+----------+--------------+-----------+----------+
+|      1 |      1 | beverages  | juice    | 4star        |       500 | good     |
+|      2 |      2 | idlydosa   | tiffin   | 4star        |      1000 | good     |
+|      3 |      3 | briyani    | meal     | 3star        |      5000 | average  |
+|      4 |      4 | all-in-one | all      | 5star        |       800 | awesome  |
++--------+--------+------------+----------+--------------+-----------+----------+
+4 rows in set (0.00 sec)
+3. Create a Table called Customers
+	CustomerID (PK, Email) , CustomerName , CustomerCity , CustomerDOB , CustomerGender , CustomerPassword
+Answer:
+create table Customers(CustomerID varchar(30) primary key , CustomerName varchar(30) not null, CustomerCity varchar(20) not null, CustomerDOB date, CustomerGender varchar(20), CustomerPassword varchar(20));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> desc table Customers;
++----+-------------+-----------+------------+------+---------------+------+---------+------+------+----------+-------+
+| id | select_type | table     | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra |
++----+-------------+-----------+------------+------+---------------+------+---------+------+------+----------+-------+
+|  1 | SIMPLE      | Customers | NULL       | ALL  | NULL          | NULL | NULL    | NULL |    1 |   100.00 | NULL  |
++----+-------------+-----------+------------+------+---------------+------+---------+------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> desc Customers;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| CustomerID       | varchar(30) | NO   | PRI | NULL    |       |
+| CustomerName     | varchar(30) | NO   |     | NULL    |       |
+| CustomerCity     | varchar(20) | NO   |     | NULL    |       |
+| CustomerDOB      | date        | YES  |     | NULL    |       |
+| CustomerGender   | varchar(20) | YES  |     | NULL    |       |
+| CustomerPassword | varchar(20) | YES  |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+mysql> insert into Customers values('abc@gmail.com','raju','chennai','1999-09-01','male','1234%&');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Customers values('dhanush@gmail.com','dhanush','chennai','2000-09-01','male','***!23');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Customers values('samantha@gmail.com','samantha','chennai','2001-01-09','female','123%&*');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Customers values('deepika@gmail.com','deepika','chennai','1998-03-15','female','12ab&*');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Customers values('kritisanon@gmail.com','kritisanon','chennai','1999-07-15','female','xyza&*');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from Customers;
++----------------------+--------------+--------------+-------------+----------------+------------------+
+| CustomerID           | CustomerName | CustomerCity | CustomerDOB | CustomerGender | CustomerPassword |
++----------------------+--------------+--------------+-------------+----------------+------------------+
+| abc@gmail.com        | raju         | chennai      | 1999-09-01  | male           | 1234%&           |
+| deepika@gmail.com    | deepika      | chennai      | 1998-03-15  | female         | 12ab&*           |
+| dhanush@gmail.com    | dhanush      | chennai      | 2000-09-01  | male           | ***!23           |
+| kritisanon@gmail.com | kritisanon   | chennai      | 1999-07-15  | female         | xyza&*           |
+| samantha@gmail.com   | samantha     | chennai      | 2001-01-09  | female         | 123%&*           |
++----------------------+--------------+--------------+-------------+----------------+------------------+
+5 rows in set (0.00 sec)
+
+4. Create a table called Orders
+	OrderID (PK, Auto) , CustomerID (FK) , OrderDate , DeliveryAddress , OrderStatus
+Answer:
+mysql> create table orders(OrderID int primary key AUTO_INCREMENT,CustomerID varchar(30) , OrderDate date , DeliveryAddress varchar(30), OrderStatus varchar(30),foreign key(CustomerID) references Customers(CustomerID));
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> desc table Orders;
++----+-------------+--------+------------+------+---------------+------+---------+------+------+----------+-------+
+| id | select_type | table  | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra |
++----+-------------+--------+------------+------+---------------+------+---------+------+------+----------+-------+
+|  1 | SIMPLE      | Orders | NULL       | ALL  | NULL          | NULL | NULL    | NULL |    1 |   100.00 | NULL  |
++----+-------------+--------+------------+------+---------------+------+---------+------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> desc Orders;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| OrderID         | int         | NO   | PRI | NULL    | auto_increment |
+| CustomerID      | varchar(30) | YES  | MUL | NULL    |                |
+| OrderDate       | date        | YES  |     | NULL    |                |
+| DeliveryAddress | varchar(30) | YES  |     | NULL    |                |
+| OrderStatus     | varchar(30) | YES  |     | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into orders(CustomerID,OrderDate,DeliveryAddress,OrderStatus) values ('kritisanon@gmail.com','2021-08-27','t.nagar','delivered');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into orders(CustomerID,OrderDate,DeliveryAddress,OrderStatus) values ('samantha@gmail.com','2021-08-31','ambattur','delivered');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into orders(CustomerID,OrderDate,DeliveryAddress,OrderStatus) values ('abc@gmail.com','2021-09-01','velacherry','delivered');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into orders(CustomerID,OrderDate,DeliveryAddress,OrderStatus) values ('dhanush@gmail.com','2021-09-05','adyar','notdelivered');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into orders(CustomerID,OrderDate,DeliveryAddress,OrderStatus) values ('deepika@gmail.com','2021-09-05','adyar','booking and notdelivered');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from Orders;
++---------+----------------------+------------+-----------------+--------------------------+
+| OrderID | CustomerID           | OrderDate  | DeliveryAddress | OrderStatus              |
++---------+----------------------+------------+-----------------+--------------------------+
+|       1 | kritisanon@gmail.com | 2021-08-27 | t.nagar         | delivered                |
+|       2 | samantha@gmail.com   | 2021-08-31 | ambattur        | delivered                |
+|       3 | abc@gmail.com        | 2021-09-01 | velacherry      | delivered                |
+|       4 | dhanush@gmail.com    | 2021-09-05 | adyar           | notdelivered             |
+|       5 | deepika@gmail.com    | 2021-09-05 | adyar           | booking and notdelivered |
++---------+----------------------+------------+-----------------+--------------------------+
+5 rows in set (0.00 sec)
+5. Create a table called OrderMenus
+	OrderID (FK) , MenuID(FK) , MenuQty , MenuPrice 
+	Note : OrderID & MenuID should be together primary key.
+Answer:
+mysql> create table OrderMenus (OrderId int ,MenuID int ,menuQty int not null,MenuPrice int not null,foreign key(orderID)references Orders(OrderID),foreign key(MenuID) references RMenuItems(MenuID));
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> insert into OrderMenus values(1,2,1,5000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into OrderMenus values(2,1,1,500);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into OrderMenus values(4,3,2,2000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into OrderMenus values(3,4,5,4000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into OrderMenus values(5,4,10,8000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from OrderMenus;
++---------+--------+---------+-----------+
+| OrderId | MenuID | menuQty | MenuPrice |
++---------+--------+---------+-----------+
+|       1 |      2 |       1 |      5000 |
+|       2 |      1 |       1 |       500 |
+|       4 |      3 |       2 |      2000 |
+|       3 |      4 |       5 |      4000 |
+|       5 |      4 |      10 |      8000 |
++---------+--------+---------+-----------+
+5 rows in set (0.00 sec)
+
+
+Add some dummy data in the tables.
+
+Reports / Queries
+
+1. Show the list of Restaurant of specific city
+   Answer:
+ mysql> Select * from Restaurants where RestaurantCity ='chennai';
++--------------+------------------+-------------------+----------------+------------+
+| RestaurantID | RestaurantName   | RestaurantAddress | RestaurantCity | ContactNo  |
++--------------+------------------+-------------------+----------------+------------+
+|            1 | blind chemistry  | besant nagar      | chennai        | 9876543210 |
+|            2 | Saravana Bhavan  | gandhi road       | chennai        | 9080706050 |
+|            3 | thalappakatti    | kelambakkam       | chennai        | 9181716151 |
+|            4 | cool barbeqecues | t.nagar           | chennai        | 9282726252 |
++--------------+------------------+-------------------+----------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> update Restaurants set Restaurant^C
+mysql> update Restaurants set RestaurantCity='Tambaram' where RestaurantID=3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> Select * from Restaurants where RestaurantCity ='chennai';
++--------------+------------------+-------------------+----------------+------------+
+| RestaurantID | RestaurantName   | RestaurantAddress | RestaurantCity | ContactNo  |
++--------------+------------------+-------------------+----------------+------------+
+|            1 | blind chemistry  | besant nagar      | chennai        | 9876543210 |
+|            2 | Saravana Bhavan  | gandhi road       | chennai        | 9080706050 |
+|            4 | cool barbeqecues | t.nagar           | chennai        | 9282726252 |
++--------------+------------------+-------------------+----------------+------------+
+3 rows in set (0.00 sec)
+2. Show the list of all Restaurants along with menus (RestaurantID , RestaurantName ,MenuID , MenuName , MenuPrice)
+Answer:
+mysql> select RestaurantID,RestaurantName,MenuID,MenuName,MenuPrice from Restaurants inner join RMenuItems using(RestaurantID);
++--------------+------------------+--------+------------+-----------+
+| RestaurantID | RestaurantName   | MenuID | MenuName   | MenuPrice |
++--------------+------------------+--------+------------+-----------+
+|            1 | blind chemistry  |      1 | beverages  |       500 |
+|            2 | Saravana Bhavan  |      2 | idlydosa   |      1000 |
+|            3 | thalappakatti    |      3 | briyani    |      5000 |
+|            4 | cool barbeqecues |      4 | all-in-one |       800 |
++--------------+------------------+--------+------------+-----------+
+4 rows in set (0.00 sec)
+3. Show the list of  Restaurants along with menus (RestaurantID , RestaurantName ,MenuID , MenuName , MenuPrice) of specific city
+mysql> select RestaurantID,RestaurantName,MenuID,MenuName,MenuPrice from Restaurants left outer join RMenuItems using(RestaurantID) where RestaurantCity='chennai';
++--------------+------------------+--------+------------+-----------+
+| RestaurantID | RestaurantName   | MenuID | MenuName   | MenuPrice |
++--------------+------------------+--------+------------+-----------+
+|            1 | blind chemistry  |      1 | beverages  |       500 |
+|            2 | Saravana Bhavan  |      2 | idlydosa   |      1000 |
+|            4 | cool barbeqecues |      4 | all-in-one |       800 |
++--------------+------------------+--------+------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select RestaurantID,RestaurantName,MenuID,MenuName,MenuPrice from Restaurants left outer join RMenuItems using(RestaurantID) where RestaurantCity='tambaram';
++--------------+----------------+--------+----------+-----------+
+| RestaurantID | RestaurantName | MenuID | MenuName | MenuPrice |
++--------------+----------------+--------+----------+-----------+
+|            3 | thalappakatti  |      3 | briyani  |      5000 |
++--------------+----------------+--------+----------+-----------+
+1 row in set (0.00 sec)
+4. Show the list of Orders of a specific customer
+mysql> select * from Orders where CustomerID='samantha@gmail.com';
++---------+--------------------+------------+-----------------+-------------+
+| OrderID | CustomerID         | OrderDate  | DeliveryAddress | OrderStatus |
++---------+--------------------+------------+-----------------+-------------+
+|       2 | samantha@gmail.com | 2021-08-31 | ambattur        | delivered   |
++---------+--------------------+------------+-----------------+-------------+
+1 row in set (0.00 sec)
+5. Show the list of orders along with ordermenus of a specific customer
+mysql> select * from Orders left outer join OrderMenus using(OrderID) where CustomerID='kritisanon@gmail.com';
++---------+----------------------+------------+-----------------+-------------+--------+---------+-----------+
+| OrderID | CustomerID           | OrderDate  | DeliveryAddress | OrderStatus | MenuID | menuQty | MenuPrice |
++---------+----------------------+------------+-----------------+-------------+--------+---------+-----------+
+|       1 | kritisanon@gmail.com | 2021-08-27 | t.nagar         | delivered   |      2 |       1 |      5000 |
++---------+----------------------+------------+-----------------+-------------+--------+---------+-----------+
+1 row in set (0.01 sec)
+
+6. Show the list of latest 5 orders of a specific customer
+Answer:
+mysql> insert into Orders(CustomerID, OrderDate , DeliveryAddress , OrderStatus) values('abc@gmail.com','2021-09-03','madurai','Delivered');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Orders(CustomerID, OrderDate , DeliveryAddress , OrderStatus) values('abc@gmail.com','2021-09-04','kanchipuram','Delivered');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Orders(CustomerID, OrderDate , DeliveryAddress , OrderStatus) values('abc@gmail.com','2021-09-05','thiruvallur','booking and not Delivered');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> slect * from Orders;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'slect * from Orders' at line 1
+mysql> select * from Orders;
++---------+----------------------+------------+-----------------+---------------------------+
+| OrderID | CustomerID           | OrderDate  | DeliveryAddress | OrderStatus               |
++---------+----------------------+------------+-----------------+---------------------------+
+|       1 | kritisanon@gmail.com | 2021-08-27 | t.nagar         | delivered                 |
+|       2 | samantha@gmail.com   | 2021-08-31 | ambattur        | delivered                 |
+|       3 | abc@gmail.com        | 2021-09-01 | velacherry      | delivered                 |
+|       4 | dhanush@gmail.com    | 2021-09-05 | adyar           | notdelivered              |
+|       5 | deepika@gmail.com    | 2021-09-05 | adyar           | booking and notdelivered  |
+|       6 | abc@gmail.com        | 2021-09-03 | madurai         | Delivered                 |
+|       7 | abc@gmail.com        | 2021-09-04 | kanchipuram     | Delivered                 |
+|       8 | abc@gmail.com        | 2021-09-05 | thiruvallur     | booking and not Delivered |
++---------+----------------------+------------+-----------------+---------------------------+
+8 rows in set (0.00 sec)
+
+mysql> insert into Orders(CustomerID, OrderDate , DeliveryAddress , OrderStatus) values('kritisanon@gmail.com','2021-09-04','kanchipuram','Delivered');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Orders(CustomerID, OrderDate , DeliveryAddress , OrderStatus) values('abc@gmail.com','2021-09-02','ooty','Delivered');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from Orders;
++---------+----------------------+------------+-----------------+---------------------------+
+| OrderID | CustomerID           | OrderDate  | DeliveryAddress | OrderStatus               |
++---------+----------------------+------------+-----------------+---------------------------+
+|       1 | kritisanon@gmail.com | 2021-08-27 | t.nagar         | delivered                 |
+|       2 | samantha@gmail.com   | 2021-08-31 | ambattur        | delivered                 |
+|       3 | abc@gmail.com        | 2021-09-01 | velacherry      | delivered                 |
+|       4 | dhanush@gmail.com    | 2021-09-05 | adyar           | notdelivered              |
+|       5 | deepika@gmail.com    | 2021-09-05 | adyar           | booking and notdelivered  |
+|       6 | abc@gmail.com        | 2021-09-03 | madurai         | Delivered                 |
+|       7 | abc@gmail.com        | 2021-09-04 | kanchipuram     | Delivered                 |
+|       8 | abc@gmail.com        | 2021-09-05 | thiruvallur     | booking and not Delivered |
+|       9 | kritisanon@gmail.com | 2021-09-04 | kanchipuram     | Delivered                 |
+|      10 | abc@gmail.com        | 2021-09-02 | ooty            | Delivered                 |
++---------+----------------------+------------+-----------------+---------------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from Orders left outer join OrderMenus using(OrderID) where CustomerID='abc@gmail.com';
++---------+---------------+------------+-----------------+---------------------------+--------+---------+-----------+
+| OrderID | CustomerID    | OrderDate  | DeliveryAddress | OrderStatus               | MenuID | menuQty | MenuPrice |
++---------+---------------+------------+-----------------+---------------------------+--------+---------+-----------+
+|       3 | abc@gmail.com | 2021-09-01 | velacherry      | delivered                 |      4 |       5 |      4000 |
+|       6 | abc@gmail.com | 2021-09-03 | madurai         | Delivered                 |   NULL |    NULL |      NULL |
+|       7 | abc@gmail.com | 2021-09-04 | kanchipuram     | Delivered                 |   NULL |    NULL |      NULL |
+|       8 | abc@gmail.com | 2021-09-05 | thiruvallur     | booking and not Delivered |   NULL |    NULL |      NULL |
+|      10 | abc@gmail.com | 2021-09-02 | ooty            | Delivered                 |   NULL |    NULL |      NULL |
++---------+---------------+------------+-----------------+---------------------------+--------+---------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> desc OrderMenus;
++-----------+------+------+-----+---------+-------+
+| Field     | Type | Null | Key | Default | Extra |
++-----------+------+------+-----+---------+-------+
+| OrderId   | int  | YES  | MUL | NULL    |       |
+| MenuID    | int  | YES  | MUL | NULL    |       |
+| menuQty   | int  | NO   |     | NULL    |       |
+| MenuPrice | int  | NO   |     | NULL    |       |
++-----------+------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into OrderMenu(6,1,2,1000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '6,1,2,1000)' at line 1
+mysql> insert into OrderMenu values(6,1,2,1000);
+ERROR 1146 (42S02): Table 'onlinefoodorderingdb.ordermenu' doesn't exist
+mysql> insert into OrderMenus values(6,1,2,1000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into OrderMenus values(7,2,1,1000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into OrderMenus values(8,3,1,5000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into OrderMenus values(10,3,1,5000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from Orders left outer join OrderMenus using(OrderID) where CustomerID='abc@gmail.com';
++---------+---------------+------------+-----------------+---------------------------+--------+---------+-----------+
+| OrderID | CustomerID    | OrderDate  | DeliveryAddress | OrderStatus               | MenuID | menuQty | MenuPrice |
++---------+---------------+------------+-----------------+---------------------------+--------+---------+-----------+
+|       3 | abc@gmail.com | 2021-09-01 | velacherry      | delivered                 |      4 |       5 |      4000 |
+|       6 | abc@gmail.com | 2021-09-03 | madurai         | Delivered                 |      1 |       2 |      1000 |
+|       7 | abc@gmail.com | 2021-09-04 | kanchipuram     | Delivered                 |      2 |       1 |      1000 |
+|       8 | abc@gmail.com | 2021-09-05 | thiruvallur     | booking and not Delivered |      3 |       1 |      5000 |
+|      10 | abc@gmail.com | 2021-09-02 | ooty            | Delivered                 |      3 |       1 |      5000 |
++---------+---------------+------------+-----------------+---------------------------+--------+---------+-----------+
+5 rows in set (0.00 sec)
+
+mysql>
+
