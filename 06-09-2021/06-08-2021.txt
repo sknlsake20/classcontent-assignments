@@ -1,0 +1,417 @@
+
+
+Joins
+	-> combining two or more tables to get efficient result in select query.
+
+	-> student ->
+		stdid, stdname,stdaddress,stdmobilno,stdschoolfees, stdclass,stdmathmarks,stdsocmarks,stdscimarks,stdtotal,stdavg......
+
+		-> normalize table:
+		-> stdaddress -> hno, street , state, pin 
+		-> studentaddres -> separate table -> stdid
+		-> studentpersonaldetail ->
+		-> studentschooldata -> 
+		
+		example for multiple foriegn keys:
+
+create table stdcourse(stdid int, cid int,description varchar(40),foreign key (stdid) references student(stdid),foreign key(cid) references course(cid));
+
+alter table course add(stdid int,foreign key (stdid) references student(stdid));
+
+
+		-> denormalization , way of combining table to fetch data.
+
+			joins, subqueries.
+
+		Types of joins:
+		
+		-> Inner join
+		-> Outer join 
+			-> left join
+			-> right join
+		-> cross join
+		-> self join
+		-> equi join
+		-> natural join
+
+		Innerjoin:
+
+mysql> select * from student;
++-------+----------+-----------+-----------------------+---------------+
+| stdid | stdname  | stdmobile | stdemailid            | institutename |
++-------+----------+-----------+-----------------------+---------------+
+|    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |
+|   145 | sridhar  |   7898877 | sridhar@sridhar.com   | srit          |
+|   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |
+|   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |
++-------+----------+-----------+-----------------------+---------------+
+
+
+mysql> select * from institutedetails;
++-------------+---------------+------------------+
+| instituteid | institutename | instituteaddress |
++-------------+---------------+------------------+
+|           1 | MJCET         | HYD              |
+|           2 | CBIT          | SEC              |
+|           3 | SRIT          | TN               |
+|           4 | KBIT          | KN               |
++-------------+---------------+------------------+
+
+
+INNER JOIN :
+mysql> select * from student s inner join institutedetails i where s.institutename=i.institutename;
++-------+---------+-----------+---------------------+---------------+-------------+---------------+------------------+
+| stdid | stdname | stdmobile | stdemailid          | institutename | instituteid | institutename | instituteaddress |
++-------+---------+-----------+---------------------+---------------+-------------+---------------+------------------+
+|    12 | shiva   | 876545677 | shiva@shiva.com     | MJCET         |           1 | MJCET         | HYD              |
+|   145 | sridhar |   7898877 | sridhar@sridhar.com | srit          |           3 | SRIT          | TN               |
+|   286 | thaheer |   7777777 | taheer@taheer.com   | MJCET         |           1 | MJCET         | HYD              |
++-------+---------+-----------+---------------------+---------------+-------------+---------------+------------------+
+
+or 
+INNER JOIN :
+
+mysql> select * from student s ,institutedetails i where s.institutename=i.institutename;
++-------+---------+-----------+---------------------+---------------+-------------+---------------+------------------+
+| stdid | stdname | stdmobile | stdemailid          | institutename | instituteid | institutename | instituteaddress |
++-------+---------+-----------+---------------------+---------------+-------------+---------------+------------------+
+|    12 | shiva   | 876545677 | shiva@shiva.com     | MJCET         |           1 | MJCET         | HYD              |
+|   145 | sridhar |   7898877 | sridhar@sridhar.com | srit          |           3 | SRIT          | TN               |
+|   286 | thaheer |   7777777 | taheer@taheer.com   | MJCET         |           1 | MJCET         | HYD              |
++-------+---------+-----------+---------------------+---------------+-------------+---------------+------------------+
+
+
+LEFT OUTER JOIN:
+
+mysql> select * from student s left join institutedetails i on s.institutename=i.institutename;
++-------+----------+-----------+-----------------------+---------------+-------------+---------------+------------------+
+| stdid | stdname  | stdmobile | stdemailid            | institutename | instituteid | institutename | instituteaddress |
++-------+----------+-----------+-----------------------+---------------+-------------+---------------+------------------+
+|    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |           1 | MJCET         | HYD              |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |        NULL | NULL          | NULL             |
+|   145 | sridhar  |   7898877 | sridhar@sridhar.com   | srit          |           3 | SRIT          | TN               |
+|   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |           1 | MJCET         | HYD              |
+|   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |        NULL | NULL          | NULL             |
++-------+----------+-----------+-----------------------+---------------+-------------+---------------+------------------+
+
+RIGHT OUTER JOIN:
+mysql> select * from student s right outer join institutedetails i on s.institutename=i.institutename;
++-------+---------+-----------+---------------------+---------------+-------------+---------------+------------------+
+| stdid | stdname | stdmobile | stdemailid          | institutename | instituteid | institutename | instituteaddress |
++-------+---------+-----------+---------------------+---------------+-------------+---------------+------------------+
+|   286 | thaheer |   7777777 | taheer@taheer.com   | MJCET         |           1 | MJCET         | HYD              |
+|    12 | shiva   | 876545677 | shiva@shiva.com     | MJCET         |           1 | MJCET         | HYD              |
+|  NULL | NULL    |      NULL | NULL                | NULL          |           2 | CBIT          | SEC              |
+|   145 | sridhar |   7898877 | sridhar@sridhar.com | srit          |           3 | SRIT          | TN               |
+|  NULL | NULL    |      NULL | NULL                | NULL          |           4 | KBIT          | KN               |
++-------+---------+-----------+---------------------+---------------+-------------+---------------+------------------+
+
+
+FULL JOIN:
+
+mysql> select * from student s full join institutedetails i on s.institutename=i.institutename; (will not working)
+
+UNION has to be used.
+
+
+mysql> select * from student s left join institutedetails i on s.institutename=i.institutename union select * from student s right join institutedetails i on s.institutename=i.institutename;
++-------+----------+-----------+-----------------------+---------------+-------------+---------------+------------------+
+| stdid | stdname  | stdmobile | stdemailid            | institutename | instituteid | institutename | instituteaddress |
++-------+----------+-----------+-----------------------+---------------+-------------+---------------+------------------+
+|    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |           1 | MJCET         | HYD              |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |        NULL | NULL          | NULL             |
+|   145 | sridhar  |   7898877 | sridhar@sridhar.com   | srit          |           3 | SRIT          | TN               |
+|   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |           1 | MJCET         | HYD              |
+|   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |        NULL | NULL          | NULL             |
+|  NULL | NULL     |      NULL | NULL                  | NULL          |           2 | CBIT          | SEC              |
+|  NULL | NULL     |      NULL | NULL                  | NULL          |           4 | KBIT          | KN               |
++-------+----------+-----------+-----------------------+---------------+-------------+---------------+------------------+
+
+
+CROSS JOIN:
+
+	-> Each value in first table is joined with each value of second table.
+
+mysql> select * from student cross join coursedetails;
++-------+----------+-----------+-----------------------+---------------+------+--------+-----------+--------+
+| stdid | stdname  | stdmobile | stdemailid            | institutename | cid  | cname  | cduration | cprice |
++-------+----------+-----------+-----------------------+---------------+------+--------+-----------+--------+
+|    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |    4 | python |         5 |   9000 |
+|    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |    3 | cpp    |         3 |   4000 |
+|    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |    2 | C      |         2 |   3000 |
+|    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |    1 | java   |         2 |   5000 |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |    4 | python |         5 |   9000 |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |    3 | cpp    |         3 |   4000 |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |    2 | C      |         2 |   3000 |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |    1 | java   |         2 |   5000 |
+|   145 | sridhar  |   7898877 | sridhar@sridhar.com   | srit          |    4 | python |         5 |   9000 |
+|   145 | sridhar  |   7898877 | sridhar@sridhar.com   | srit          |    3 | cpp    |         3 |   4000 |
+|   145 | sridhar  |   7898877 | sridhar@sridhar.com   | srit          |    2 | C      |         2 |   3000 |
+|   145 | sridhar  |   7898877 | sridhar@sridhar.com   | srit          |    1 | java   |         2 |   5000 |
+|   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |    4 | python |         5 |   9000 |
+|   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |    3 | cpp    |         3 |   4000 |
+|   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |    2 | C      |         2 |   3000 |
+|   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |    1 | java   |         2 |   5000 |
+|   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |    4 | python |         5 |   9000 |
+|   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |    3 | cpp    |         3 |   4000 |
+|   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |    2 | C      |         2 |   3000 |
+|   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |    1 | java   |         2 |   5000 |
++-------+----------+-----------+-----------------------+---------------+------+--------+-----------+--------+
+
+or 
+
+mysql> select * from student,coursedetails;
++-------+----------+-----------+-----------------------+---------------+------+--------+-----------+--------+
+| stdid | stdname  | stdmobile | stdemailid            | institutename | cid  | cname  | cduration | cprice |
++-------+----------+-----------+-----------------------+---------------+------+--------+-----------+--------+
+|    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |    4 | python |         5 |   9000 |
+|    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |    3 | cpp    |         3 |   4000 |
+|    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |    2 | C      |         2 |   3000 |
+|    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |    1 | java   |         2 |   5000 |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |    4 | python |         5 |   9000 |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |    3 | cpp    |         3 |   4000 |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |    2 | C      |         2 |   3000 |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |    1 | java   |         2 |   5000 |
+|   145 | sridhar  |   7898877 | sridhar@sridhar.com   | srit          |    4 | python |         5 |   9000 |
+|   145 | sridhar  |   7898877 | sridhar@sridhar.com   | srit          |    3 | cpp    |         3 |   4000 |
+|   145 | sridhar  |   7898877 | sridhar@sridhar.com   | srit          |    2 | C      |         2 |   3000 |
+|   145 | sridhar  |   7898877 | sridhar@sridhar.com   | srit          |    1 | java   |         2 |   5000 |
+|   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |    4 | python |         5 |   9000 |
+|   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |    3 | cpp    |         3 |   4000 |
+|   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |    2 | C      |         2 |   3000 |
+|   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |    1 | java   |         2 |   5000 |
+|   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |    4 | python |         5 |   9000 |
+|   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |    3 | cpp    |         3 |   4000 |
+|   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |    2 | C      |         2 |   3000 |
+|   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |    1 | java   |         2 |   5000 |
++-------+----------+-----------+-----------------------+---------------+------+--------+-----------+--------+
+
+SELF JOIN:
+	-> COMBINING TABLE IT SELF WITH EITHER INNERJOIN OR OUTERJOIN.
+
+
+	mysql> select * from student s1,student s2 where s1.stdpercentage>s2.stdpercentage;
++-------+----------+-----------+-----------------------+---------------+---------------+-------+----------+-----------+-----------------------+---------------+---------------+
+| stdid | stdname  | stdmobile | stdemailid            | institutename | stdpercentage | stdid | stdname  | stdmobile | stdemailid            | institutename | stdpercentage |
++-------+----------+-----------+-----------------------+---------------+---------------+-------+----------+-----------+-----------------------+---------------+---------------+
+|   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |            86 |    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |            34 |
+|   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |            85 |    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |            34 |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |            98 |    12 | shiva    | 876545677 | shiva@shiva.com       | MJCET         |            34 |
+|   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |            86 |   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |            85 |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |            98 |   286 | thaheer  |   7777777 | taheer@taheer.com     | MJCET         |            85 |
+|   143 | sarvesh  |   3422345 | sarvesh@sarevesh.com  | JBIT          |            98 |   678 | ruchitha |    888888 | ruchitha@ruchitha.com | sjbit         |            86 |
++-------+----------+-----------+-----------------------+---------------+---------------+-------+----------+-----------+-----------------------+---------------+---------------+
+
+EQUI JOIN: 
+
+	-> it is an operation that compines multiple tables based on equal sign(=);
+
+NATURAL JOIN:
+
+	-> when we are combining two or more tables based on common column.
+
+
+mysql> select * from customer;
++----+-------------+-----------------+-------------+
+| id | cname       | cemail          | bankaccount |
++----+-------------+-----------------+-------------+
+|  1 | mahalakshmi | maha@maha.com   |      420420 |
+|  2 | sneha       | sneha@sneha.com |      989898 |
+|  3 | sona        | sona@sona.com   |      999999 |
++----+-------------+-----------------+-------------+
+
+mysql> select * from balance;
++------+-------------+--------+
+| id   | bankaccount | amount |
++------+-------------+--------+
+|    1 |      420420 | 400000 |
+|    2 |      989898 | 700000 |
+|    3 |      999999 | 800000 |
++------+-------------+--------+
+
+natural join:
+
+mysql> select c.cname,c.cemail,b.amount,b.id,b.bankaccount from customer c natural join balance b;
++-------------+-----------------+--------+------+-------------+
+| cname       | cemail          | amount | id   | bankaccount |
++-------------+-----------------+--------+------+-------------+
+| mahalakshmi | maha@maha.com   | 400000 |    1 |      420420 |
+| sneha       | sneha@sneha.com | 700000 |    2 |      989898 |
+| sona        | sona@sona.com   | 800000 |    3 |      999999 |
++-------------+-----------------+--------+------+-------------+
+	
+
+Subquery : 
+		-> query inside a query is called subquery.
+		-> outer query is the query which contains sub query init
+		-> once subquery gets executed then only execution outer query starts.
+		-> subquery is given or declared using ().
+		-> it can be used with select, insert , update, delete.....
+		-> it can be used with operators(=,>,< etc...) and clauses(ALL, ANY, WHERE........)
+
+
+
+	Types of subqueries:
+
+		-> scalar operand subquery
+		-> comparison subquery
+		-> clause subquery(all,any,in,some)
+		-> row subquery -> opertors(single row or multiple row)
+		-> exist or not exist subquery
+		-> correlated subquery
+		-> from clause subquery
+
+		Scalar operand :
+			- subquery that returns exactly one column value.
+
+mysql> select * from employee where departmentid=(select dep_id from department where dep_name='tester');
++-------+----------+------------+------------------+----------+-------------+----------+-----------+-----------+--------------+
+| empid | empfname | emplname   | empemail         | empmob   | emphiredate | empjobid | empsalary | managerid | departmentid |
++-------+----------+------------+------------------+----------+-------------+----------+-----------+-----------+--------------+
+|   100 | alex     | fernandies | alex@gmail.com   | 90909090 | 1920-06-12  | IT_eng   |     75000 |       786 |           90 |
+|   102 | swathi   | saxena     | swathi@gmail.com | 80808080 | 1950-12-23  | IT_eng   |    100000 |       735 |           90 |
+|   103 | bruce    | wills      | bruce@gmail.com  | 70707070 | 1990-06-17  | IT_test  |    200000 |       786 |           90 |
++-------+----------+------------+------------------+----------+-------------+----------+-----------+-----------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee where departmentid=(select dep_id from department where dep_name='tester') and empid =102;
++-------+----------+----------+------------------+----------+-------------+----------+-----------+-----------+--------------+
+| empid | empfname | emplname | empemail         | empmob   | emphiredate | empjobid | empsalary | managerid | departmentid |
++-------+----------+----------+------------------+----------+-------------+----------+-----------+-----------+--------------+
+|   102 | swathi   | saxena   | swathi@gmail.com | 80808080 | 1950-12-23  | IT_eng   |    100000 |       735 |           90 |
++-------+----------+----------+------------------+----------+-------------+----------+-----------+-----------+--------------+
+1 row in set (0.00 sec)
+
+
+
+
+		Comparison subquery:
+
+		-> query which is using comparison operator(=,>,<,>=,<=,==.....) to return values.
+
+
+mysql> select * from employee where empsalary < (select AVG(empsalary) from employee);
++-------+----------+------------+------------------+----------+-------------+----------+-----------+-----------+--------------+
+| empid | empfname | emplname   | empemail         | empmob   | emphiredate | empjobid | empsalary | managerid | departmentid |
++-------+----------+------------+------------------+----------+-------------+----------+-----------+-----------+--------------+
+|   100 | alex     | fernandies | alex@gmail.com   | 90909090 | 1920-06-12  | IT_eng   |     75000 |       786 |           90 |
+|   102 | swathi   | saxena     | swathi@gmail.com | 80808080 | 1950-12-23  | IT_eng   |    100000 |       735 |           90 |
++-------+----------+------------+------------------+----------+-------------+----------+-----------+-----------+--------------+
+
+
+		Subquery in ALL, ANY,IN or SOME:
+
+		-> query used with these keywords ALL,ANY,IN,SOME.
+
+
+mysql> select departmentid,avg(empsalary) from employee group by departmentid having avg(empsalary)>=all(select avg(empsalary) from employee group by departmentid);
++--------------+----------------+
+| departmentid | avg(empsalary) |
++--------------+----------------+
+|           85 |         400000 |
++--------------+----------------+
+1 row in set (0.02 sec)
+
+mysql> select departmentid,avg(empsalary) from employee group by departmentid having avg(empsalary)<=all(select avg(empsalary) from employee group by departmentid);
++--------------+----------------+
+| departmentid | avg(empsalary) |
++--------------+----------------+
+|           90 |         125000 |
++--------------+----------------+
+
+
+		Row Subquery:
+		-> subquery that returns a single row and more rows than one column value.
+
+			single row subquery ->sub query is return single row
+			multiple row subquery -> sub query is returng many row
+
+select empfname,emplname from employee where row(departmentid,managerid)=(select dep_id,manager_id from department where location_id=1300);
++----------+----------+
+| empfname | emplname |
++----------+----------+
+| bruce    | wills    |
++----------+----------+
+
+
+		EXISTS or NOT EXISTS SUBQUERY:
+
+		-> query used opertors like Exist or not exists.
+
+mysql> select * from employee e where exists(select * from employee where managerid=e.empid);
++-------+----------+----------+-------------------+----------+-------------+------------+-----------+-----------+--------------+
+| empid | empfname | emplname | empemail          | empmob   | emphiredate | empjobid   | empsalary | managerid | departmentid |
++-------+----------+----------+-------------------+----------+-------------+------------+-----------+-----------+--------------+
+|   786 | sridhar  | AT       | sridhar@gmail.com | 88888888 | 2015-06-25  | IT_manager |    400000 |       105 |           90 |
+|   105 | jet      | lee      | jet@gmail.com     | 76767070 | 1985-06-17  | IT_manager |    400000 |       344 |           85 |
++-------+----------+----------+-------------------+----------+-------------+------------+-----------+-----------+--------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee e where not exists(select * from employee where managerid=e.empid);
++-------+----------+------------+------------------+----------+-------------+----------+-----------+-----------+--------------+
+| empid | empfname | emplname   | empemail         | empmob   | emphiredate | empjobid | empsalary | managerid | departmentid |
++-------+----------+------------+------------------+----------+-------------+----------+-----------+-----------+--------------+
+|   100 | alex     | fernandies | alex@gmail.com   | 90909090 | 1920-06-12  | IT_eng   |     75000 |       786 |           83 |
+|   102 | swathi   | saxena     | swathi@gmail.com | 80808080 | 1950-12-23  | IT_eng   |    100000 |       735 |           90 |
+|   103 | bruce    | wills      | bruce@gmail.com  | 70707070 | 1990-06-17  | IT_test  |    200000 |       786 |           90 |
++-------+----------+------------+------------------+----------+-------------+----------+-----------+-----------+--------------+
+
+
+
+	Coorelated subquery:
+	-> subquery that contains a reference to a table(in the parent query ) that also apperas in the outer query.
+
+	
+mysql> select * from employee;
++-------+----------+------------+-------------------+-----------+-------------+------------+-----------+-----------+--------------+
+| empid | empfname | emplname   | empemail          | empmob    | emphiredate | empjobid   | empsalary | managerid | departmentid |
++-------+----------+------------+-------------------+-----------+-------------+------------+-----------+-----------+--------------+
+|   100 | alex     | fernandies | alex@gmail.com    |  90909090 | 1920-06-12  | IT_eng     |     75000 |       786 |           83 |
+|   102 | swathi   | saxena     | swathi@gmail.com  |  80808080 | 1950-12-23  | IT_eng     |    100000 |       735 |           90 |
+|   103 | bruce    | wills      | bruce@gmail.com   |  70707070 | 1990-06-17  | IT_test    |    200000 |       786 |           90 |
+|   105 | jet      | lee        | jet@gmail.com     |  76767070 | 1985-06-17  | IT_manager |    400000 |       344 |           85 |
+|   143 | sarvesh  | sriram     | sarvesh@gmail.com | 900000009 | 2005-01-01  | IT_test    |    200000 |       100 |           85 |
+|   786 | sridhar  | AT         | sridhar@gmail.com |  88888888 | 2015-06-25  | IT_manager |    400000 |       105 |           90 |
++-------+----------+------------+-------------------+-----------+-------------+------------+-----------+-----------+--------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employee outerr where empsalary>(select avg(empsalary) from employee where departmentid=outerr.departmentid);
++-------+----------+----------+-------------------+----------+-------------+------------+-----------+-----------+--------------+
+| empid | empfname | emplname | empemail          | empmob   | emphiredate | empjobid   | empsalary | managerid | departmentid |
++-------+----------+----------+-------------------+----------+-------------+------------+-----------+-----------+--------------+
+|   105 | jet      | lee      | jet@gmail.com     | 76767070 | 1985-06-17  | IT_manager |    400000 |       344 |           85 |
+|   786 | sridhar  | AT       | sridhar@gmail.com | 88888888 | 2015-06-25  | IT_manager |    400000 |       105 |           90 |
++-------+----------+----------+-------------------+----------+-------------+------------+-----------+-----------+--------------+
+
+
+	From subquery:
+
+	-> query used with from clause is called from subquery.
+	
+		syntax: 
+			select * from(subquery) as name.......
+
+mysql> select e1,e2,e3 from(select empid as e1,empfname as e2,emplname as e3 from employee )as e where e1>130;
++-----+---------+--------+
+| e1  | e2      | e3     |
++-----+---------+--------+
+| 143 | sarvesh | sriram |
+| 786 | sridhar | AT     |
++-----+---------+--------+
+
+
+			
+
+
+		
+
+
+
+
+
+
+employee, deparment
+
+JDBC
+	

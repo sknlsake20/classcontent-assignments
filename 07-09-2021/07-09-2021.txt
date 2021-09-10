@@ -1,0 +1,133 @@
+JDBC : -> java database connectivity.
+
+	-> it uses Entity relational model.
+
+RDBMS or NON-RDBMS : 
+
+	oracle, mysql, sql server.....
+		or
+	mongodb, cassandara, bigdata......
+
+
+	-> jdbc is an api using these we get connected to any database.
+	-> JDBC -> 4.3
+	-> java.sql -> 
+		i->Driver, Connection, Statement, PreparedStatement, CallableStatement, ResultSet, ResultSetMetaData, DatabaseMetaData, RowSet
+
+		C-> DriverManager
+
+
+	Driver: 
+	-> it is a software component that enables java application to interact with database.
+
+	oracle -> oracle driver
+	mysql -> mysql driver
+
+	Types of Driver:
+	1. JDBC ODBC driver(other languages)
+
+		-> easy to use
+		-> performance is very fast
+		disadv:
+		-> object has to be converted into another language
+		-> client side need to have driver lib.
+
+
+	2. Native-API driver(partially java)
+
+		disadv:
+		-> client side need to have driver lib.
+
+
+	3. Network protocol driver (fully java)
+
+		disadv:
+		-> network support is required
+		-> network disconnected is possible.
+		
+	4. Thin driver (fully java)
+
+		advantages:
+		-> not required to convert
+		-> no extra lib or software required at client side.
+
+
+	Java Database Connectivity steps:
+
+	1. register driver class
+		Class.forName("com.mysql.cj.jdbc.Driver"); //register driver class
+	2. create connection
+
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/personaldb", "shiva", "shiva");
+			//create connection
+	3. create statement
+
+			Statement st=con.createStatement(); //create statement
+	4. exeucte query
+
+		DDL -> boolean -> st.execute(query);
+		DML -> int -> st.executeUpdate(query);
+		DQL -> result object -> st.executeQuery(query);
+
+	5. close connection
+
+			st.close();
+			con.close();
+
+
+		DriverManager 
+			It acts as an interface between driver and user.
+			It keeps track of driver, like registering, deregistering.
+
+
+
+		Connection
+
+			it is the session between java application and database.
+			it gives time period for executing statements, prepared....commit rollback etc.
+			
+		Statement
+			it is an interface which executes queries with database.
+
+			executeUpdate(query);-> DML
+			execute(query); -> DDL
+			executeQuery(query);-> DQL
+			executeBatch();
+
+		PreparedStatement:
+			it is subinterface of Statement. It is used to execute parametric query.
+			it will imporve performance of the appliation.
+
+
+		ResultSet
+			it is a cursor pointing to row of a table. 
+
+
+		ResultSetMetaData 
+
+			it is a metadata about table information like
+
+			column,columncount, columnname columntype.
+
+		DatabaseMetaData
+
+			it provides methods to get information about database product, name, driver name , total number of tables, name of totaltabes....
+
+
+
+		CRUD application :
+
+		creating, retrieving, updating and delete.	
+
+		-> model class -> Student
+		-> abstraction interace -> StudentDAOImpl
+		-> Implemented Class -> StudentDAO
+
+
+
+		
+
+
+
+
+		
