@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	function Student(fname,lname,age,mobile,emailid)
+	{
+		this.firstname=fname;
+		this.lastname=lname;
+		this.age=age;
+		this.mobileno=mobile;
+		this.emailid=emailid;
+		this.completename=fullname;
+	}
+
+	function fullname()
+	{
+		return this.firstname + this.lastname;
+	}
+  </script>
+ </head>
+ <body>
+  <script>
+	var sharu = new Student("sharmila","murthy",21,98989898,'sharmila@shamu.com');
+
+	document.write(sharu.firstname+" "+sharu.lastname+" "+sharu.age+" "+sharu.mobileno+" "+sharu.emailid+" "+sharu.completename()+"<br>");
+
+	var navu = new Student("navya","srinivas",22,999999,'navya@navya.com');
+
+	document.write(navu.firstname+" "+navu.lastname+" "+navu.age+" "+navu.mobileno+" "+navu.emailid);
+  </script>
+ </body>
+</html>

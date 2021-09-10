@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+
+  <title>Document</title>
+	<script>
+		function validateForm()
+		{
+			var uname=document.myform.username.value;			
+			var password=document.myform.pwd.value;
+			var rpassword = document.myform.rpwd.value;
+			var email=document.myform.email_id.value;
+
+			if(uname==null || uname=="")
+			{
+				alert("username cannot be empty");
+				return false;
+			}
+			else if(password.length < 6 || rpassword.length < 6 )
+			{
+				alert("password cannot be less than 6 characters");
+				return false;
+			}
+			else if(password!=rpassword)
+			{
+				alert("passwords are not matching")
+			}
+
+		
+
+		}
+	</script>
+ </head>
+ <body>
+  <form name="myform" method="post" action="https://youtube.com" onsubmit="return validateForm();">
+  Username:<br>
+  <input type="text" name="username">
+  <br>
+  Password:<br>
+  <input type="password" name="pwd">
+  <br>
+  Retype Password:<br>
+  <input type="password" name="rpwd">
+  <br>
+  Email id:<br>
+  <input type="text" name="email_id">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+ </body>
+</html>

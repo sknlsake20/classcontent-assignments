@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	function display()
+	{
+		document.write("hi");
+		function display1()
+		{
+			document.write("hello");
+				function display3()
+				{
+					
+					document.write("bye");
+				}
+		}
+	}
+  </script>
+ </head>
+ <body>
+  <script>
+  		display();//
+	display1();
+  </script>
+ </body>
+</html>

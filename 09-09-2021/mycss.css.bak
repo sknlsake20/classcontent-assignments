@@ -1,0 +1,10 @@
+p{
+
+	background-color: aqua;
+	
+}
+
+#mypara{
+
+	background-color: red;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	function changeColor()
+	{
+		confirm("are you sure");
+		document.bgColor="red";
+	}
+	
+	function hi()
+	{
+	var n=document.forms[0].elements[0].value;
+	alert(n);
+
+	var n1=document.forms[1].name;
+	alert(n1);
+	}
+  </script>
+ </head>
+ <body>
+ 
+	
+	click here to change bgcolor : <input type="button" value="here" onclick="changeColor()"/>
+
+	<form name="myname" onsubmit="hi();">
+	enter your name : <input type="text" name="yname"/>
+	<input type="submit" value="login"/>
+	</form>
+
+	<form name="myname1">
+	enter your name : <input type="text" name="yname1"/>
+	<input type="submit" value="login"/>
+	</form>
+  
+ </body>
+</html>

@@ -1,0 +1,100 @@
+CSS : 
+	-> cascading style sheet
+	-> presenting xml or html document.
+	-> it makes presentation more effetive and compatable
+
+	
+	-> Hakon wium lie -> 1994
+	-> html, css, xml -> W3C
+	-> html5 and css3
+
+	css1, css2, css3
+
+	-> how to apply css on html pages:
+		1. inline style sheet
+
+			-> style attribute
+
+		2. internal style sheet
+
+			-> <style type="text/css">
+				</style>
+		3. external style sheet
+
+
+	syntax:
+	
+		selector {
+
+			properties: values;
+
+			........................
+			}
+
+
+	Selector: 
+		-> On which element style has to applied.
+		Types of selectors:
+		- universal
+		- type 
+		- id
+		- class
+		- -----
+
+	List of properites:
+		
+
+
+	Background properties
+	Border Properties
+	Classification and Positioning Properties
+	Dimension Properties
+	Font Properties
+	Generated Content Properties
+	List Properties
+	Margin Properties
+	Outline Properties
+	Padding Properties
+	Page Properties
+	Table Properties
+	Text Properties
+	Other Properties
+	media properties
+
+
+
+	Box model: 
+		-> every element is surronded by padding, border and margin.
+
+	content-> where element content is placed
+		
+	
+	padding -> this area separates content with border
+
+		top, right, bottom, left
+
+	border -> this area separates box boreder with certains styles
+	
+		style, color, width, top, right, bottom, left
+		
+	margin	-> this area separates external part of border.
+
+		top, right, bottom,left
+
+
+	position:
+		-> static, fixed, absolute and relative
+
+	
+	Animation :
+		-webkit
+
+
+		-webkit-radial-gradient(center,circle, red 0%, orange 75%);
+		-webkit-border-radius: 100px;
+		-webkit-box-shadow:rgb(110,110,110) 12px 12px 12px;
+		-webkit-linear-gradient(top,black,white);
+		-webkit-transform:translate(100px,100px) rotate(30deg) scale(.8);
+		-webkit-transform: rotate(30deg);
+		-webkit-transition: -webkit-transform 2s;
+		-webkit-transition: -webkit-transform 2s,opacity 2s,background 2s,width 2s, height 2s;

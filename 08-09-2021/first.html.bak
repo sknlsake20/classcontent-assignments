@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="shiva">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="learning about html">
+  <title>this is my first page</title>
+ </head>
+ <body bgcolor="yellow" text="red">
+	my name is <b>shiva</b> <strong> kumar </strong><br/>
+	my girlfriend name is <i>laxmi</i> <em>rani</em><br/>
+	my mother's name is <u>mrs. Chandra sekhar</u><br/>
+	my father's name is <big>Mr. Chandra sekhar</big><br/>
+	my wife's name is <strike>naga</strike><br/>
+	my kids names are <tt>kethana</tt> and <small>saadvik</small><br/>
+
+	I drink water(H<sub>2</sub>0) daily<br/>
+	I hava ulitimate power of &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10
+	shiva<sup>10</sup><br/>
+
+	I'm super <del>energetic</del><ins>little energetic</ins><br/>
+
+<p>	<h1>HTML</h1>
+sub-elements. Browsers do not display the HTML tags, but use them to interpret the content of the page. HTML can embed programs written in a scripting
+82 KB (9,368 words) - 15:43, 7 September 2021</p>
+<p><h2>HTML5</h2>
+HTML5 is a markup language used for structuring and presenting content on the World Wide Web. It is the fifth and last major HTML version that is a World
+55 KB (5,166 words) - 14:16, 7 September 2021
+</p>
+<p><h3>HTML element</h3>
+hyperlinks and images). Each element can have HTML attributes specified. Elements can also have content, including other elements and text. As is generally
+112 KB (12,574 words) - 12:17, 5 August 2021</p>
+<p><h4>Microdata (HTML)</h4>
+Microdata is a WHATWG HTML specification used to nest metadata within existing content on web pages. Search engines, web crawlers, and browsers can extract
+12 KB (1,272 words) - 17:19, 7 July 2021
+</p>
+<p><h5>List of XML and HTML character entity references</h5>
+character entity references that are valid in HTML and XML documents. A character entity reference refers to the content of a named entity. An entity declaration
+228 KB (2,382 words) - 07:24, 26 August 2021</p>
+<p><h6>Web content</h6>
+individual content a person wanted to publish. Even though we may embed various protocols within web pages, the "web page" composed of "HTML" (or some
+11 KB (1,499 words) - 18:29, 11 August 2020</p>
+
+ </body>
+</html>

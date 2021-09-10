@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+	var arr=[12,'e',"shiva"];
+
+		for(let i=0;i<arr.length;i++)
+		{
+			document.write(arr[i]);
+		}
+
+		document.write("<br>");
+
+		for(let x in arr)
+		{
+			document.write(arr[x]+"<br>");
+		}
+
+		document.write("<br>");
+
+		for(let x of arr)
+		{
+			document.write(x+"<br>");
+		}
+
+  </script>
+ </body>
+</html>

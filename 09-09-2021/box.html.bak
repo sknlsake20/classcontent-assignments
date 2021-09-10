@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+
+  #mydiv,p{
+	
+		width: 300;
+		height: 100;
+		/*background-color: red;*/
+		padding: 20px;
+		/*border-style: solid;
+		border-width: thick;
+		border-color: blue;*/
+		border: solid thick blue;
+		margin: 30px;  
+  }
+
+  #mydiv{
+  color: yellow;
+  /*direction: rtl;*/
+  line-height: 500%;
+  letter-spacing: 10px;
+  text-align: center;
+  text-decoration: overline;
+  text-shadow: rgb(110,110,110) 3px 3px 7px;
+  font: bold 30px century Gothic;
+  }
+	
+  </style>
+ </head>
+ <body>
+	<div id="mydiv">this is my div<br>this is my div</div>
+	<p> this is a paragraph</p>
+ </body>
+</html>

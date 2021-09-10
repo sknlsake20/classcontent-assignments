@@ -1,0 +1,298 @@
+JDBC -> java database connectivity -> API -> application programming interface
+
+interface:
+
+	Driver, Connection, Statement, PreparedStatement, CallableStatement, ResultSet, ResultSetMetaData, DatabaseMetaData, RowSet
+
+classes:
+
+	DriverManager
+
+
+	java application ->JDBC API-> Database(oracle, mysql, .........)
+
+
+	Driver -> 
+	Types of Drivers:
+	1. JDBC ODBC DRIVER
+	2. Native API driver
+	3. Network protocol driver
+	4. Thin driver
+
+	
+	DriverManager -> it is responsible for loading, registering, deregistering all types of drivers.
+	
+	Connection -> location, username, password taking them a session should be create.
+
+	Statement -> queries execution is done 
+
+	ResultSet -> it is a cursor which store complete table values in a single object.
+
+
+
+	ResultSetMetaData -> it gives information about table like noofcol, typeofcol, nameofcol......
+
+	DatabaseMetaData -> it gives information about driver, driverversion, drivername.........
+
+
+	Steps to get connected with DATABASE:
+
+	1. registering driver class
+	2. getting connection
+	3. create statement
+	4. executing queries
+	5. close connection
+
+
+	executeUpdate() -> DML -> int
+	execute() -> DDL -> boolean
+	executeQuery() -> DQL -> ResultSet
+
+
+	CRUD -> creating, retrieving, updating, deleting
+
+======================================================================================================	
+
+
+HTML :- 
+
+	why HTML?
+		-> To create web pages. 	-> web applications-> user interface :HTML
+
+	web application : 
+		-> an application which can get execute in browser using request and response based architecture.
+		Types of wep pages:
+		1. Static web pages -> pages which are common to all type of data
+		2. Dynamic web pages -> gmail , facebook, .......
+	
+
+	User Interface -> it is face of an application which is used to run application in background
+
+		HTML + CSS + JS
+
+		HTML - Hyper text markup language -> to create static web pages
+		CSS - Cascading style sheet -> to style our web pages
+		JS - JavaScript -> graphics, responsive, dynamic pages
+	
+	where
+
+		Tim berners lee -> inventor for world wide web
+		HTML is invented by him (1991)
+		HTML 2.0 - 1995
+		HTML 3.0 - 1998
+		HTML  4.01 - 1999
+		XHTML 1.0 -> xml 
+		HTML 5 -> 2012
+
+	how
+		Tag:
+		<shiva> - starting tag 
+		</shiva>- end tag
+			-> html contains predefined tags.
+			-> every tag has its own importance and working nature.
+		Element: 
+			-> it is content enclosed between start and end tags
+
+		<student>
+			<name>shiva</name>
+		</student>
+
+		
+		Attribute:
+			-> it gives extra information about a tag.
+
+		<student>
+			<name color="fair">shiva</name>
+		</student>
+		
+		
+
+		Structure of HTML:
+
+		1. it is not case sensitive.
+		2. it is interpreted language.
+		3. it does not have compiler.
+		
+Doctype:
+		
+<!DOCTYPE html> -> optional (html 5 version)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> (xhtml 1.0)
+
+MainTag:
+
+<html> -> starting tag
+</html> -> end tag
+
+	-> all element should be declared inside html tags only
+
+	-> it contains two section head and body
+
+
+Head section:
+	-> we declare information about pages, libraries, css, javascript.
+
+		- <meta charset="UTF-8">
+		- <title>Document</title>
+		- <script type="text/javascript">     </script>
+		- <link rel="stylesheet" href="sample.css">
+		- <style.....></style>
+
+Body section:
+	-> what ever data has to be displayed in main section of web page.
+	
+
+Predefined tags and predefined attributes.
+		tags types:
+		-> paired tag  -> start tag and end tag -> <html></html>
+		-> unpaired tag -> does not contain separte end tag -> <img/>,<br/>
+	-> body attributes:
+		bgcolor="blue" text="red" background="jvm-3.jpg"
+
+		vlink = visited link
+		link = general links
+		alink = hyper links
+	-> Formatting tags:
+		bold 
+		italic
+		underline
+		sup
+		sub
+		strong	
+		big
+		small
+		strike
+		monospaced font(tt)
+		emphazied
+		insert
+		delete
+
+	-> break tag -> <br/>
+	-> para tag -> <br/><br/>
+	-> pre formatting tag -> <pre></pre> it does not ignore spaces and breaks.
+	-> heading tags
+		<h1></h1>
+		<h2></h2>
+		<h3></h3>
+		<h4></h4>
+		<h5></h5>
+		<h6></h6>
+
+	-> comment -> information which doesnot get diplayed on browser
+	
+		<!-- this tell about html -->
+
+	-> phrase tags:
+			marked
+			abbrevation
+			acronym
+			text direction
+			blockquotation <blockquote></blockquote
+			definition
+			short quotation <q></q>
+			code<code></code>
+			keyboard text
+			address
+
+	-> image tag:
+
+			<img/>
+			Attributes:
+
+				src-> location of image
+				height-> 
+				width -> 
+				border ->
+				alt -> if image does not get displayed
+
+	-> font tag:
+
+			<font >
+			attributes:
+				size
+				face -> verdana, arial
+				color
+
+	-> List tags:
+
+		-> to specify data in point or bullet notations.
+		-> types of list tags:
+			-> order list -> list with index values like 1,2,3.....I,II,III
+
+				<ol type="">
+
+				i,ii,iii
+				a,b,c
+				I,II,III
+			-> unorder list -> list with bullets
+				<ul type="">
+
+				disc,circle,square
+			-> definition list
+
+				<dl><dt>Computer</dt><dd>it is an electronic device.</dd></dl>
+
+
+
+	-> hyperlinks :
+
+		-> these tags are used for navigating from one page to another page.
+		types of hyperlink:
+		1. inner hyperlink
+		2. inner pages hyperlink
+		3. external pages hyperlink
+
+
+		<a href="" target=""></a>
+
+
+		target="_self"
+		target="_blank"
+		target="_parent"
+		target="_top"
+		target="targetframe"
+
+	-> tables:
+		elements:
+		<th><td><tr><thead><tfoot><tbody><colgroup><column>
+		attributes:
+		bgcolor, background, text, colspan, rowspan, cellspacing, cellpadding, width, height
+
+	-> form:
+		To accept data from user.
+
+		single line text:
+	
+			<input type="text" name="username"/> -> text value
+			type = text, password, submit,reset,check box,radio button, button.....
+
+			html5 -> date, number, color,...............
+
+
+	-> frames:
+
+		-> divided page into sections 
+		-> types:
+			-> inline - <iframe>
+			-> external - <frameset>
+
+
+	HTML - 5 :
+
+	-> audio & video
+
+		attributes:
+			controls, autoplay,height, width, loop, muted,poster,preload, src
+	-> form inputs
+
+
+
+
+				
+
+		
+		
+
+
+
+	
+		
