@@ -1,0 +1,12 @@
+<!ELEMENT employees (employee)>
+<!ELEMENT employee ((employeename | employeeid),(employeeage),(employeeaddress))>
+<!ELEMENT employeename (#PCDATA)>
+<!ELEMENT employeeid (#PCDATA)>
+<!ELEMENT employeeage EMPTY>
+<!ATTLIST employeeage  age CDATA #REQUIRED>
+<!ELEMENT employeeaddress (#PCDATA | cityname | state |pin)*>
+<!ELEMENT cityname (#PCDATA)>
+<!ELEMENT state (#PCDATA)>
+<!ELEMENT pin (#PCDATA)>
+
+

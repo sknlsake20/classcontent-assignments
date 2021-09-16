@@ -1,0 +1,19 @@
+<!NOTATION JPG SYSTEM "image/jpeg">
+<!NOTATION GIF SYSTEM "image/gif">
+<!ENTITY sk "shivaisgoodtutorial">
+<!ELEMENT bank (branch+,loan+,customer+,photo)>
+<!ELEMENT branch EMPTY>
+<!ATTLIST branch bid ID #REQUIRED>
+<!ATTLIST branch bname CDATA #IMPLIED>
+<!ATTLIST branch bcode  CDATA "5678">
+<!ELEMENT loan EMPTY>
+<!ATTLIST loan lid ID #REQUIRED>
+<!ELEMENT customer (account+)>
+<!ELEMENT account EMPTY>
+<!ATTLIST account no ID #REQUIRED>
+<!ATTLIST account bbid IDREFS #REQUIRED>
+<!ATTLIST account type (SAVING | CURRENT | TRADING) #REQUIRED>
+<!ATTLIST account emailid CDATA #IMPLIED>
+<!ELEMENT photo (#PCDATA)>
+<!ATTLIST photo pht-type NOTATION (JPG|GIF) #REQUIRED>
+

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  targetNamespace="http://www.employee.in" elementFormDefault="qualified">
+  <xs:element name="employees">
+    <xs:complexType>
+    <xs:sequence>
+      <xs:element name="employee" minOccurs="1" maxOccurs="unbounded">     
+        <xs:complexType>
+        <xs:sequence>
+        <xs:element name="employeename">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+        <xs:pattern value="[a-z]{6}"/>
+        </xs:restriction>
+        </xs:simpleType>
+        </xs:element>
+        <xs:element name="employeeid" type="xs:int" minOccurs="1" maxOccurs="unbounded"/>
+        <xs:element name="employeesalary" >
+          <xs:simpleType>
+          <xs:restriction base="xs:double">
+        <xs:minInclusive value="10000"/>
+        <xs:maxInclusive value="999999"/>
+        </xs:restriction>
+        </xs:simpleType>
+        </xs:element> 
+            
+    </xs:sequence>
+      </xs:complexType>
+      </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

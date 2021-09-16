@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://employeeinfo.com" xmlns="http://employeeinfo.com">
+  <xs:element name="employees">
+  <xs:simpleType>
+    <xs:element name="emp-name" type="xs:string"></xs:element>
+</xs:simpleType> 
+  </xs:element>
+</xs:schema>

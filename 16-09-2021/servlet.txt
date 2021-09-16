@@ -1,0 +1,86 @@
+html -> static web pages
+
+servlet -> handles programming at server side.
+
+
+how many ways servlet can be created:
+
+	-> implementing Servlet interface
+	-> Extending GenericServlet class -> already implements Serlvet
+	-> Extending HttpServlet class -> extending GenericServlet
+
+		HTTP -> implementation to http methods:
+			post,get, delete,trace, insert, options..... 
+que
+
+			ServletRequest -> HttpServletRequest
+			ServletResponse -> HttpServletResponse
+			
+
+Every servlet has its own life cycle
+
+	-> loads all servlet classes
+	-> depending on request that particulat servlet instance is created
+	-> initialize servlet object -> init();
+	-> service method execution -> service();
+	-> destroy servlet object -> destroy();
+
+
+
+Servlet interface :
+
+
+		init(ServletConfig config)
+		getServletInfo()
+		getServletConfig()
+		service(ServletRequest req, ServletResponse res)
+		destroy()
+
+		JDBC:
+		-> loading driver class
+		-> creating connection
+		-> statement
+		-> result
+		-> close
+
+
+		RequestDispatcher -
+			It is an interface used to forware or include your request object to futher pages.
+
+	ServletConfig -> this is an object created by web container for every individual servlet object.
+
+	ServletContext -> this is an object created by web container for all servlet objects. it is generated when ever server gets loaded.
+
+
+
+	Session : -> it simple means particular interval of time.
+
+	it is to maintain state of an user.
+
+
+	Session management:
+	-> Cookies
+	-> hidden form field
+			<form action=\"./register1\">\r\n"
+			+ "enter your username : <input type=\"hidden\" name=\"uname\" value="+u+"/>"+u+"<br/>\r\n"
+			+ "enter your password : <input type=\"hidden\" name=\"pwd\" value="+p+"/>"+p+"<br/>\r\n"
+			+ "enter your emailid : <input type=\"hidden\" name=\"email\" value="+e+">"+e+"<br/>\r\n"
+			+ "<input type=\"submit\" value=\"register\"> \r\n"
+			+ "</form>
+
+
+		-> we can send text messages
+		-> resubmittion is required
+
+	-> URL rewriting
+		<a href='Servlet2?u="+u+"'>servlet2</a>
+
+		-> we can send text messages
+		-> it can viewed in url
+
+	-> HttpSession
+
+
+
+
+

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bank PUBLIC "-//shiva//1.0//EN" "bank.dtd">
+<bank>
+<branch bid="t456" bname="TN"></branch>
+<branch bid="h556" bname="HYD"></branch>
+<loan lid="p67878"></loan>
+<customer>
+<account no="j234" bbid="t456 p67878" type="SAVING"></account>
+<account no="j255" bbid="h556 p67878" type="SAVING" emailid="shiv@gmail.com"></account>
+</customer>
+<photo pht-type="GIF">this is for photo &sk;</photo>
+</bank> 

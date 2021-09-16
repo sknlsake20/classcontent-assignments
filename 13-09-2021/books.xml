@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE books PUBLIC " " "books.dtd">
+<books> 
+  <book>
+    <book-name>java</book-name>
+    <price>1000</price>
+    <author>shiva</author>
+    <publisher pid="345" pname="sarvesh"></publisher>
+  </book>
+  
+    <book>
+    <book-name>cpp</book-name>
+    <price>500</price>
+    <author>shalini</author>
+    <publisher pid="221" paddress="chennai"></publisher>
+  </book>
+</books>

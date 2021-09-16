@@ -1,0 +1,300 @@
+xml -> extensible markup language
+	
+	-> transfering data from one application to another application
+	-> text based databases
+
+xml vs html:
+html
+-> predefined tags
+-> it is used displaying web pages
+-> syntax is not strict
+-> text base web pages
+
+xml
+-> userdefined tags
+-> transfering data
+-> very very strict
+-> text based databases
+
+
+-> one example on xml
+-> DTD and XSD
+
+	DTD:- document type definition
+	
+	type of elements:
+	->  text-only
+	-> child-only
+	-> EMPTY
+	-> mixed
+	-> ANY
+
+	type of attributes:
+	#REQUIRED
+	#IMPLIED
+	#FIXED
+	default
+
+	Datatype:
+	CDATA
+	ENUMERATED
+	ID
+	IDREF
+	IDREFS
+	NMTOKEN
+	NMTOKENS
+	NOTATION
+	ENTITY
+	ENTITIES
+
+	
+	XSD-> XML schema definition
+	-> it has more datatypes then dtd
+	-> cardinalities are more in xsd
+
+	datatypes of XSD:
+
+	primitive datatypes(19):
+	string, boolean, decimal, float, double,duration,datetime,date,time,gYearMonth,gMonthDay,gDay,gMonth,hexbinary,base64,binary,anyURL,QName,NOTATION
+
+
+	Derived datatypes(25):
+	normalizeString, token, language, NMTOKEN,NMTOKENS,Name,NCName,ID,IDREF,IDREFS, ENTITY,ENTITIES,integer,nonPositiveInteger,
+negativeInteger,long,int,short,byte,nonNegativeInteger,unSignedLong,unSignedInt,unSignedByte,unsignedShort,positiveInteger.
+
+		
+	Types of elements:
+	1. Simple Element
+		-> which contains text-only
+
+		<empid>234</empid>
+
+	2. Complex Element
+
+		-> text with attribute
+		-> empty with attribute
+		-> child element and \or attribute
+		-> mixed content and \  or attribute
+			mixed="true"
+
+	Attribute:
+	Required: <xs:attribute name="" type=""  use="required"/>
+	default : <xs:attribute name="" type=""  default=""/>
+	fixed :   <xs:attribute name="" type=""  fixed=""/>
+
+	restrictions:
+
+	minInclusive
+	maxInclusive
+	minExclusive
+	maxExclusive
+	totalDigits
+	fationDigits
+	pattern = [0-9][a-z]
+	whiteSpace
+	length
+	enumertion
+	maxLength
+	minLength
+	extension
+	
+-============================================================================
+
+what is java EE?
+			->java enterprise edition
+			-> it is upgraded version of java standard edition.
+			-> these libraries support in building entrpise application
+				
+
+
+Need of java EE?
+			web application,enterprise appliation
+specifications?
+			web apis-> servlets, jsps, html, css, javascript 
+requirements?
+	-> server:	
+	which host an application or software and can get executed using request and response.
+
+	Types of server:
+	- web server - 
+	apache tomcat -> web api-> servlets, jsps,html,css,js(spring jar)
+	- application server 
+	(glassfish, weblogic,webshere) web, chatting , messaging,mailing, security service
+	- database server - mysql , oracle, sql server......
+
+how to setup java EE?
+
+	setting up with apache tomcat:
+
+	- download apache tomcat and unzip it
+	- set tomcat_home and catalina_home in environmental variable
+	- open eclipse -> servers -> new server
+	- select apache -> version -> select tomcat directory
+		bin -> binary files-> executable files
+		conf -> tomcat related configuaration files like user, password, port
+		lib -> jar files which support web applications(servlet jsp, html css, js......)
+		logs -> it give information about tomcat server and project.
+		temp -> temporary folder , while execute download temporary documents
+		webapp -> our project has to be deployed.
+		work -> present instance backup of work will be stored
+
+		HTTP: -> it is an application-level for collabarating or distributing hypermedia information system.
+
+		-> it is tcp/ip based communiation protocol
+
+		
+		Request Object:
+		-> request line -> www.gmail.com
+		-> source ip address -> 192.168.0.1
+		-> destination ip address -> 2334.45.23.56
+		-> request uri(uniform resource identifier)-> index.html(face of application,home page)
+		-> request method
+			-> post , get,head,trace,put,delete,options 
+			get -> url data goes
+			post -> request body 
+			head -> header details
+			trace -> it will debug where request
+			put -> try to insert certain data at server side
+			delete -> carries information which has to be deleted at serve side
+			options -> all method can be used.
+
+		-> user -agent header -> browser
+		-> connetion -> keep-alive
+		-> cache control
+		-> our data
+
+		Response Object:
+		-> status code 
+			100-199 - information
+			200-299 - success message
+			300-399 - redirect
+			400-499 - client side error
+			500-599 -  server side error
+		-> destination ipaddress
+		-> source ipaddress
+		-> content type
+		-> data
+`			
+		
+	Server side programming in java :
+		-> Servlets
+			-> to maintain serveside programming
+		
+			javax.servlet.*;
+			javax.servlet.http.*;
+		
+			interace:
+			Servlet
+			ServletRequest
+			ServletResponse
+			RequestDispatcher
+			ServletConfig
+			ServletContext
+			
+			Filter
+			FilterConfig
+			FilterChain
+			ServletRequestListener
+			ServletRequestAttributeListener
+			ServletContextListener
+			ServletContextAttributeListener
+
+
+			Class:
+			
+			GenericServlet
+			ServletRequestEvent
+			ServletResoponseEvent
+			ServletRequestAttributeEvent
+			ServletResponseAttributeEvent
+
+
+			javax.servlet.http
+
+			interface:
+			
+			HttpServletRequest
+			HttpServletResponse
+			HttpSession
+			HttpSessionListener
+			HttpSessionContext...
+			
+
+			Classes:
+			
+			HttpServlet
+			Cookie
+			HttpSessionEvent
+			HttpSessionBindingEvent
+
+
+	what is a servlet?
+	
+	-> it is a techology used to create web application(resides at server side)
+	-> they are written on threads
+	-> advantages:
+		- better performance
+		- portability
+		- Robust
+		- secure.
+
+
+	how can we create servlet:
+		1. Implementing Servlet interface
+		2. Extending GenericServlet
+		3. Extending HttpServlet 
+
+
+	Implementing using servlet interface:
+
+		./firstservlet -> url mapping
+
+		once servlet is created , auto generated code in web.xml
+
+<servlet>
+    <description></description>
+    <display-name>MyServlet</display-name>
+    <servlet-name>MyServlet</servlet-name>
+    <servlet-class>com.src.MyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyServlet</servlet-name>
+    <url-pattern>/firstservlet</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+			
+	
+
+
+		
+		
+
+
+
+
+
+	
+
+
+
+
+

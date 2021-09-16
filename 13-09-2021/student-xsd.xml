@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<s:students xmlns:s="http://student.com" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://student.com student.xsd">
+  <s:studentid>23</s:studentid>
+  <s:studentname>shiva</s:studentname>
+</s:students>

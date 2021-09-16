@@ -1,0 +1,311 @@
+Java Script: 
+
+	-> dynamic web pages -> 
+	DHTML -> HTML + CSS + JS
+	-> validation
+	-> interacting with pages
+	-> graphical represenatation.
+
+	-> brendan eich -> 1995 -> netscape -> mocha -> livescript -> javascript
+	-> ecma script
+
+	
+	-> HTML pages:
+		-> inline
+			attribute to tags like -> onclick,onsubmit.....
+		-> internal
+			tag-> <script type="text/javascript"></script>
+		-> external
+			tag 
+
+			<script type="text/javascript" src="external.js"></script>
+
+
+	js tokens:
+
+		-> identifiers
+		-> keywords
+		-> comments
+		-> datatypes 
+		-> separators
+		-> operators
+
+	variables:
+		
+		var, let, const	 
+
+	control statements:
+
+		if, if...else, ......
+		do..while, while, for, for with in , for with of
+		break, continue, goto
+
+	functions :
+		
+		four types of function
+
+		- default values can be given for parameters
+		- functions inside functions can be declared
+		
+
+	Objects:
+		-> using functions
+
+		-> function person(pid,pname,paddress)
+			{
+				this.pid=pid;
+				this.pname=pname;
+				this.paddress=paddress;
+				this.age=calcuateAge;
+				
+			}
+			function calcuateAge(age)
+			{
+
+
+			}
+
+		predefined objects:
+		-> window, object, document, forms, elements, arrays,string, date,image, history, math........
+
+		Events:
+		-> mouse events
+		-> keyboard events
+		-> window events
+		-> form events
+		-> clipboard events
+		-> media events........
+
+
+		validation of form:
+		-> valid emaild, username and password.
+===============================================================================
+
+XML -> 
+
+	- Extensible markup language
+
+diff between xml and html:
+
+html 
+	-> to display pages.
+	-> predefined tags
+	-> syntax wise not that strict
+	-> text based web pages.
+xml 
+	-> containing data which can be transfered from one application to another.
+	-> userdefined tags.
+	-> xml is very strict with syntaxs
+	-> text based databases
+	-> well defined document.
+		
+
+
+
+	-> Elements
+	-> Attributes
+		-> no duplicate attribute can be defined in elements
+		-> should be enclosed with in '' or ""
+	-> Entity references
+
+		&lt;
+		&gt;
+		&amp;
+		&apos;
+		&quot;.............
+
+
+	-> DTD or XSD:
+
+	DTD: document type definition
+	XSD: Xml schema definition
+
+	
+	-> xml structure can be defined by DTD or XSD.
+
+	xml rules:
+	-> our xml should have only one root element
+	-> closing & opening are mandatory
+	-> case sensitive and should be properly defined
+	-> special characters -> entity references
+
+	DTD:
+	-> it is a xml technique used to define structure of xml.
+	-> extension should be saved as .dtd
+	-> it can be applied on xml in two ways:
+		-> internal
+		-> external
+			-> PUBLIC
+
+			"-" - iso
+			"+" - COMPANY	
+		<!DOCTYPE employees PUBLIC "-//VENDORNAME//VERSION//EN" "emp.dtd">
+			
+			-> SYSTEM
+
+			<!DOCTYPE employees SYSTEM "emp.dtd">
+
+	-> It declares elements, attributes,entity reference.
+
+	Types of elements:
+		1. text-only
+
+	<!ELEMENT employee (#PCDATA)>
+
+		2. child only
+
+	<!ELEMENT employees (employee,employeename,employeeid,employeeage)>
+
+		3. mixed
+	<!ELEMENT employeeaddress (#PCDATA | cityname | state |pin)*>
+
+		4. EMPTY
+	<!ELEMENT employeeage EMPTY>
+		5. ANY
+	<!ELEMENT employeeage ANY>
+
+
+	cardinality operators:
+		* -> 0 -> n
+		+ -> 1-n
+		? -> 0 or 1
+
+	<br/>
+	<hr/>
+
+	Attributes:
+		-> they give extra information about element.
+
+	<!ATTLIST employeeage  age CDATA #REQUIRED>
+
+	Attribute specification:
+		#REQUIRED -> compulsary
+		#IMPLIED -> optional
+		  it is fixed value
+
+			<!ATTLIST publisher pid CDATA #FIXED "231">
+
+		default -> 
+
+	Attribute Datatypes:
+
+	CDATA -> TEXT -> # +.......
+	ENUMERATED
+	ID
+	IDREF
+	IDREFS
+	NMTOKEN -> a-z,A-Z,-,0-9,_,.
+	NMTOKENS
+	NOTATIONS
+	ENTITY- shivaisgoodtutorial
+	ETNTITIES	
+
+
+	XSD: 
+	-> this helps to create structure of xml and is advanced than DTD.
+	-> it contains its own datatypes
+	-> it supports mulitiple cardinalities
+
+		0-n
+		1-n
+		0/1
+5 - 10
+
+minOccurance and maxOccurance
+
+	-> it contains many datatypes:
+
+			i. Simple datatype
+			ii. Complex datatype
+
+
+	Primitive datatype:
+	string, boolean, decimal, float, double, duration, datetime,time,date, gYearMonth,gYear,gMonthDay,gDay,gMonth,hexbinary,base64,binary,anyURL,Q
+name,Notation
+
+	build-in:
+	normalizedString, token, language, NMTOKEN,NMTOKENS,Name, NCName, ID, IDREF, IDREFS,ENTITY, ENTITIES, integer, nonPositiveInteger, negativeInteger, long, int, short, byte, nonNegativeInteger,unsignedlong,unsignedInt,signedInt,signedLong,unsignedShort, unsignedByte, positiveInteger.
+
+
+	Elements in XSD:<>
+	-> simple elements -> text only
+			<empid>234</empid>
+	-> complex elements
+		-> text with attributes
+		-> empty column and attributes
+		-> child element and/or attributes
+		-> Mixed content and/or attributes
+	package com.src.Addition;
+	package com.src1.Addition;
+
+	import com.src.Addition;
+	XSD: employee.xsd
+	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://employee.com">
+		<xs:element name="employees">
+		<xs:simple-element>
+		<element name="emp-name" type="string"></element>
+		</simple-element>
+		</element>
+	</schema>
+
+
+	xml:
+<e:employee xmlns:e="http://employee.com" xmlns:navya="http://www.w3.org/2001/XMLSchema-instance" 
+navya:schemaLocation="http://employee.com employee.xsd">
+	<e:emp-name>shiva</e:emp-name>
+</e:employee>
+
+
+
+
+
+
+
+
+
+
+	xml:
+	<http://employee.com:employee>
+		<http://employee.com:emp-name>shiva</http://employee.com:emp-name>
+	</http://employee.com:employee>	
+
+
+	<e:employee xmlns:e="http://employee.com">
+		<e:emp-name>shiva</e:emp-name>
+	</e:employee>
+	
+		
+
+	namespace:
+		java.util.Date d1=new Date();
+		java.sql.Date d2=new Date();
+
+		-> it is a text loading all elements from it.
+
+
+
+		
+	
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		

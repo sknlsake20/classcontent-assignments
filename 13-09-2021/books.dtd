@@ -1,0 +1,10 @@
+<!ELEMENT books (book+)>
+<!ELEMENT book (book-name,price,author+,publisher?)>
+<!ELEMENT book-name (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT publisher EMPTY>
+<!ATTLIST publisher pid CDATA #REQUIRED>
+<!ATTLIST publisher pname CDATA #FIXED "sarvesh">
+<!ATTLIST publisher paddress CDATA #IMPLIED>
+<!ATTLIST publisher ppin CDATA "231">

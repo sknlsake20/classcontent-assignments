@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE employees[
+<!ELEMENT employees  (employee,employeename,employeeid,employeeage)>
+<!ELEMENT employee (#PCDATA)>
+<!ELEMENT employeename (#PCDATA)>
+<!ELEMENT employeeid (#PCDATA)>
+<!ELEMENT employeeage (#PCDATA)>
+]>
+
+
+<employees>
+  <employee>government</employee>
+  <employeename>shiva</employeename>
+  <employeeid>567</employeeid>
+  <employeeage>17</employeeage>
+</employees>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<e:employees xmlns:e="http://www.employee.in" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.employee.in employee.xsd">
+<e:employee>
+<e:employeename>shivak</e:employeename>
+<e:employeeid>567</e:employeeid>
+<e:employeesalary>23000</e:employeesalary>
+</e:employee>
+</e:employees>

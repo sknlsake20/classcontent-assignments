@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<students>
+<student>
+            <stdid>345</stdid>
+            <stdname>shiva</stdname>
+            <stdaddress>hyd</stdaddress>
+            <age value="17"> age is &lt; 18 </age>
+</student>
+  
+  <student>
+            <stdid>420</stdid>
+            <stdname>hasan</stdname>
+            <stdaddress>chennai</stdaddress>
+             <age value="47">age is &gt; 18</age>
+  </student>
+</students>
+

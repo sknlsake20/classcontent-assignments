@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE employees PUBLIC "-//shiva//1.0//EN" "emp.dtd">
+<employees>
+ <employee>
+  <employeename>shiva</employeename>
+  <employeeage age="17"></employeeage>
+  <employeeaddress>
+  <cityname>hyd</cityname>
+  <state>TS</state>
+  <pin>500080</pin>  
+</employeeaddress>
+</employee>
+</employees>
