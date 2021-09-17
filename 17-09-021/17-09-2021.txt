@@ -1,0 +1,130 @@
+user - collections
+
+	
+	
+	servlets :
+
+		1. rewriting URL
+		2. hidden forms		
+		3. cookies
+
+		-> they are very fast.But once user disables cookies in browser.
+		-> only texual message can be sent,
+
+
+		4. httpsession
+		-> object can binded
+		-> set with time interval and last accessed time.
+
+		session.invalidate();
+
+
+	-> Cookie :it is a small piece of information that is persisted between multiple client until removed.
+
+	-> javax.servlet.http.Cookie
+
+
+	Filters:
+		-> it is preprocessing and postprocessing of a request.
+
+		ex: 
+			validation, logging, compression, encrypt and decrypt.
+
+		-> filters can be pluggable
+
+		-> recording all incoming request
+		-> logs all ipaddress who are giving request
+		-> conversion
+		-> data compression
+		-> encryption and decryption
+		
+	API's:
+		-> Filter
+		-> FilterChain
+		-> FilterConfig
+
+
+			init() -> doFilter -> destroy()
+
+
+	Events & Listeners:
+		
+		Event:
+		-> it is a basic occurence when state of an object changes.
+
+		ServletRequestEvent -> servlet request object is generated
+		ServletContextEvent
+		SevletRequestAttributeEvent
+		ServletContextAttributeEvent
+		HttpSessionEvent
+		HttpSessionBindingEvent
+
+		Listeners:
+		-> it is used for automatically performing certain opertions depending on even.
+
+		ServletReqestListener
+		ServletReqestAttributeListener
+		ServletContextListener
+		ServletContextAttributeListener
+		HttpSessionListener
+		HttpSessionAttributeListener.
+
+
+JSP : 
+	Java server pages.
+
+	-> these are written on servlets.
+	-> these contain more functionalities and advantages then servlets
+	-> using jsp's we can avoid restart server many times.
+	-> these are very simple understand.
+	-> less code when compared to servlet.
+
+
+	Life cycle:
+	-> translation of JSP page
+	-> compilatin of Jsp page
+	-> Load classes
+	-> instantiate an object 
+	-> initialize object(jspInit())
+	-> service method execution(_jspService())
+	-> destory (jspDestory())
+
+	Servlet -> JspPage(jspInit(), jspDestory())-> HttpJspPage (_jspService())
+	
+	Ways of writing java code in JSP :
+	1. scriplet tag
+		<% out.print("welcome to jsp pages");%>
+	2. expression tag
+		<%=java.util.Calendar.getInstance().getTime%>
+	3. declaration tag
+
+		<%!   int square(int n)
+			{
+				return n*n;
+			}
+
+
+	implicit objects:
+
+	out -> JspWriter
+	request -> HttpServletRequest
+	response -> HttpServletResponse
+	config -> ServletConfig
+	application -> ServletContext
+
+
+	session -> HttpSession
+	pageContext -> PageContext
+	page -> Object
+	exception -> Throwable
+
+
+%>
+
+
+			
+
+		
+
+		
+
