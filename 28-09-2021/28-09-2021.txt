@@ -1,0 +1,104 @@
+IS-A 
+
+
+	-> inhertiance
+	-> interface
+
+	Animal 
+
+	Dog
+
+
+HAS-A  -> unidirectional or bi-directional
+
+Association:
+
+	one-to-one
+		with xml
+		with annotation
+	Employee -> address
+	address -> employee
+
+	one-to-many
+		with xml
+		with annotation
+
+	many-to-one
+		with xml
+		with annotation
+
+	many-to-many
+		with xml
+		with annotation
+
+	
+	class Student{
+
+	Course c;
+	}
+	
+
+	class Course{
+
+	Student s;
+	}
+
+
+
+HQL -> 
+	hibernate query language
+	-> it is similar like Sql. it doesn't depend on tables.
+	-> it completely depends classes.
+
+	from employee;
+
+	-> indepedent of databases, any one who doesn't know sql also can use.
+	
+	Advanatages:
+	1. database independent
+	2. very easy to maintain and learn queries.
+	3. support all type of queries.	
+	4. we use them with aggregate function
+
+	count()
+	max()
+	min()
+	
+
+
+
+	Query interface.
+
+	executeUpdate()
+	list()
+	setParameter(int position,Object value)
+	setParameter(String name,Object value)
+
+	setFirstResult(int rowno)
+	setMaxResult(int rowno)
+
+
+HCQL : hibernate criteria query language:
+
+	-> fetching records from data base depending on certain criteria
+
+
+		-> Restrictions
+
+			lt,gt,le,ge,ne,eq,between,like
+		-> Order
+			asc
+			dsc:
+
+		-> Projections
+NamedQuery:
+
+	-> way to use any query by some meaningful name or it is alias
+
+
+	-> by annotation
+	-> by mapping file
+
+
+@NameQueries
+@NameQuery

@@ -1,0 +1,104 @@
+generated classes:
+	1. assigned
+	2. increment
+	3. sequence
+	4. hilo
+	5. native
+	6. identity
+	7. seqhilo
+	8. uuid
+	9. guid
+	10.select
+	11. foreign
+	12 sequence - identity
+
+show_sql -> true -> to show queries in console
+
+hbm2ddl.auto -> create, update, validate, create-drop
+
+		create -> tables get dropped and recreated
+		update -> tables will get altered, and old value will be staying
+		validate -> it checks all fields are equally
+		create-drop -> first drop preexisting tables then creates new one and once work is done drops everything.
+
+
+State of Object :
+
+		1. transient state
+		2. persistent state
+		3. detached state
+		4. database state
+
+hibernate architecture:
+
+		SessionFactory
+		TransactionFactory
+		Session
+		Transaction
+
+		ConnectionProvider
+		Interal API -> JDBC, JNDI, JTA
+
+
+Crud methods:
+
+
+	-> inserting :
+			
+		
+	save(Object o)-> this will return primary key
+	persist(Object o)-> this will return void
+	saveOrUpdate(Object o)-> if primary key already exist it updates, if it is not existing it will add new value.
+
+	-> updating:
+
+	update(Object o);
+	merge(Object o); -> if object state is already available in persistent state upate may not working, so we can use merge.
+
+	-> deleting :
+	
+	delete(Object o); -> primary key
+
+	-> retriving only one object:
+		
+	get("Object.class",primarykey);
+	load("Object.class",non-primarkey);
+
+
+Choose from following:
+
+1. Add student
+2. Delete student
+3. update student
+4. get student detail
+5. exit
+
+
+---------------------------------------------------------------------------------
+Relations:
+	IS-A 
+	-> inhertiance
+	
+	Inheritance mapping:
+	-> Table per hierarchy
+	-> Table per Concrete
+	-> Table per subclass
+
+
+ 	
+	HAS-A
+	-> Association
+	
+	one to one 
+	one to many
+	many to one
+	many to many
+
+
+
+
+
+			
+
+		
+		

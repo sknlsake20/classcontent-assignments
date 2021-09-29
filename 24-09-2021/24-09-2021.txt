@@ -1,0 +1,128 @@
+JdbcTemplate
+
+insert, delete, update -> 
+
+	update
+
+select 
+
+	query(query,RowMapper)
+
+
+creating spring web MVC with jdbctemplate:
+
+	-> create dynamic web project & load jars
+	
+	-> provide entry to controller in web.xml
+	-> configure DS inside spring-servlet.xml
+	-> create DAO class
+	-> create a bean object
+	-> create a controller class
+	-> display page in jsp
+	-> server and execute
+
+
+
+
+Maven -> apache -> apache maven -> Build tool
+
+		-> maven builds project -> it is project management tool
+
+		-> project structure
+			-> source code
+			-> test code
+			-> resources, asserts
+			-> libraries/dependencies 
+			-> configuration
+			-> build document
+			-> reports
+
+		-> spring or hibernate has lots of jars files-> tranitive dependencies
+
+		-> versioning problems can removed.
+
+		-> packaging:
+			-> java stadalone project -> jar
+			-> web application -> war
+			-> Enterprise application -> ear
+
+		-> Inside server -> deployment -> jars, class, test.......
+		-> it also support certain templates.
+
+	
+	POM.xml -> 
+		-> it is an xml document used to build project
+		-> project object Model
+			it contains desciption, name, version, artifact type, source,dependencies, plugins.
+
+
+	Maven life cycle:
+
+	validate -> checks for all architecture
+	compile -> compile all source files and generated classes
+	test -> compile all test class and tests all test classes
+	package -> weather jar, war, ear
+	intergrated-test -> 
+	verify -> it verifies all compile , test and validations
+	install -> it will generate all depencies 
+	deploy -> it add project into servers 
+
+
+
+Hibernate:
+	-> Database layer -> JDBC or spring JDBC 
+
+	Disadvantages of JDBC:
+	-> it is ERM(entity relational model) based
+		student name -> mysql -> dt -> varchar
+				oracle -> dt -> varchar2
+				
+				mysql -> date -> yyyy-mm-dd
+				oracle -> date -> dd-mm-yyyy
+
+	-> query is depedent on database.
+	->  login - logout -> meetinginout -> these many transaction will make our application perform slow.
+	-> connection-pool -> limited....
+
+	Hibernate :
+	-> it is a ORM tool 
+		Object relational model
+	-> hibernate has its queries, people who don't sql can use it.
+	-> connetion-pool can be maintained by hibernate
+	-> cache memory -> performance of program increases.
+
+	Features:
+	-> Auto DDL
+	-> Generated classes -> primary key........
+	-> No exception -> all exception are handled
+	-> HQL -> hibernate query language
+	-> cache support
+	-> validation(@annotations)
+	-> ORM -> rdmb -> relations (IS-A and HAS-A)
+	-> OGM -> non-rdms
+	-> Annotation support
+
+	Hibernate Example
+	1. with xml
+		1. create project and load jar files
+		2. create pojo class	
+
+		plain old java object
+		-> It should contain same number of fields required in table.
+		-> All properties should be declare private
+		-> All properties should contain getter and setter methods
+		-> It should contain default constructor.
+		
+
+		3. create mapping file
+		4. create configuration file
+		5. main class & run application
+
+	2. with annotations
+
+
+
+		
+
+
+		

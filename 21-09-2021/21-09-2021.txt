@@ -1,0 +1,244 @@
+
+
+directives:
+	-> it is used to translate jsp pages into servlet
+	page - 
+
+	language,import, contentType, extend, buffer, info, isELIgnored, isThreadSafe, isErrorPage, errorPage, 
+	include - 
+		to include another resource into present page
+
+	taglib -> to involve preexisting libraries
+
+	Expression language:
+		-> to get data from request, session, config, application......
+
+	param
+	paramValue
+	pageScope
+	requestScope
+	sessionScope
+	applicationScope
+	header
+	headerValues
+	cookie
+	pageContext
+	initParam
+
+	
+	> -> gt
+	lt, gt, le, ge,eq,ne,true,false, and , or,not, instanceof,dif, mod,empty,null
+
+	JSTL : - 
+		JSP standard libraries
+
+	<@ taglib uri="http://java.sun.com/jsp/jstl/" prefix="">
+
+	core
+		<@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c">
+
+
+		c:out
+		c:set
+		c:if
+		c:choose
+		c:when
+		c:otherwise
+		c:import
+		c:forEach
+		c:forTokens
+		c:param
+		c:redirect	
+		c:url
+		c:remove
+		c:catch
+
+		
+	function
+		<@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn">
+
+
+		fn:contains()
+		fn:containsIgnoreCase()
+		fn:endsWith()
+		fn:espaceXml()
+		fn:indexOf()
+		fn:trim()
+		fn:startsWith()
+		fn:split()
+		fn:toLowerCase()
+		fn:toUpperCase()
+		fn:subString()
+		fn:subStringAfter()
+		fn:subStringBefore()
+		fn:length()
+		fn:replace()
+
+	format
+		<@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt">
+
+		fmt:parseNumber -> to convert any value into number
+		fmt:timezone
+		fmt:formatNumber
+		fmt:parseDate
+		fmt:formatDate
+		fmt:setTimeZone
+
+		fmt:bundle
+		-> certain resouce to be loaded into tag body
+
+		ListResourceBundle
+
+		
+		fmt:setBundle
+		fmt:message
+		
+
+
+	
+	xml
+		<%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x"%>
+
+		x:out
+		x:set
+		x:parse
+		x:choose
+		x:when
+		x:otherwise
+		x:if
+
+		x:transform -> 
+			apply Xslt -> extensible stylesheet language transfromation
+		x:param
+	sql
+
+		<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
+		sql:setDataSource -> driver, url, username, password
+		sql:query -> select
+		sql:update -> dml
+		sql:param -> preparedstatement
+		sql:dateParam -> date as parameter
+		sql:transaction -> multiple 
+
+
+	framework: 
+		-> predefined or prewritten code used by developers to applications.
+
+	examples:
+		MVC -> Model View Controller
+
+		spring, struts, jsf............
+
+
+	API's : 
+		->using these classes and interfaces we can create applications eiter in frameworks or individually
+ 
+	Libraries : 
+
+		-> these are collection frquently used precompiled resources.
+
+	Framework  : 
+
+		-> it is a template where api's are already defined and we need just plug in with our data.
+
+
+
+	Spring:
+
+		-> it has been invented by Rod johnson in 2003
+
+		-> spring is a lightweight framework.
+		-> frameworks of frameworks
+			struts, hibernate, jsp......
+
+		Advantages:
+		1. Loose coupling
+		2. Easy to test
+		3. predefined templates
+		4. light weight
+		5. Powerful abstraction
+		6. Fast development
+
+		Spring Modules:
+
+		IOC
+		DAO
+		AOP
+		Context
+		ORM
+		Web MVC
+		...........
+
+			
+Note- using spring we can develop enterprise applications without using application server.
+
+
+	web server -> apache tomcat
+			-> html,css,js,jsp,servlet....
+			-> by adding spring jars , we can develop enterprise applications in tomcat
+
+	application server  -> jboss, websphere.....
+		-> support both webapplication and ent. application
+		-> mailing, chating, security......
+
+
+
+	spring architecture:
+		-> Spring core components:
+			beans
+			core
+			context
+			Expression language
+
+	-> Bean class:
+		-> class which contains private properties
+		-> class which contains getter and setter methods to access private properties
+		-> class which contains default constructor.
+
+	-> core -> IOC and DI
+
+		IOC -> inversion of controller	
+		BeanFactory -> core support
+		ApplicationContext -> web application
+
+		-> it is a container which is responsible to instantiate, configure and assemble beans.
+
+
+		DI -> dependency Injection
+
+		-> it is a design pattern that removes depencies in code.
+		-> Constructor Injection
+		-> setter Injection
+	-> context 
+		-> it is a module which supports internationalization -> EJB, remoting
+
+	-> Expression language:
+		-> it is defined in jsp for supporting setter and getter property values. these methods can be used for accessing collectins, variables, logical and operators, retrival of objects.
+
+
+
+	-> Data access / Integration:
+		-> this module give access to interact with database either by using JDBC, ORM, OXM, JMS and transaction.
+
+
+	-> Web
+		-> this modules comprises web, web-servlet, web-struts and web-portal to create web application.
+
+
+	-> first example of spring:
+		-> download spring jar files and load them in project
+		-> create a bean class
+		-> create xml file to provide IOC container
+		-> create main class and it.
+
+
+
+
+
+
+
+
+	
+
+		

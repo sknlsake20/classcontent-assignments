@@ -1,0 +1,129 @@
+IOC: 
+Inversion of controller
+	-> it is a container responsible to instantiate , configure and assemble objects.
+
+-> types of IOC:
+	-> BeanFactory
+
+		- This is basic container which support resourc object
+
+	-> ApplicationContext
+
+		- this support basic container with it, it can also support web application.
+
+		- it is written on BeanFactory.
+
+
+-> Dependency Injection:
+
+	-> It is a design pattern that removes dependency.
+
+	Types of DI:
+	-> Constructor Injections
+	-> Setter Injections
+
+
+	CI:
+		-> if we have object
+		ref="id"
+		-> if we have collection object
+		
+		<list>
+		<ref bean="name"></ref>
+		<bean id="" class="">
+		</bean>
+		</list>
+
+		<set>
+
+		-> if we have map object
+
+		
+		
+	SI:
+		-> if we have object
+		ref="id"
+		-> if we have collection object
+
+		<list>
+		<set>
+
+		-> if we have map object
+
+
+	life cycle of bean :
+
+		
+		1. bean instantiated
+		2. dependency injected
+		3. init-method=init
+		4. utility-method=
+		5. destroy-method=
+
+
+	scope:
+
+		singleton -> only single instance per spring IOC 
+		prototype -> not single instance , it creates multiple instances
+		request -> http request
+		session -> http session
+		global-session -> session object for entire application
+
+
+	SI vs CI :
+	-> constructor injections values cannot changes or overridden later.
+	-> constructor injection partial values cannot be injection
+
+	-> setter injections values can be changed or overridden at any particular time
+	-> setter injections partial values can also be injected
+
+	
+	autowiring Model
+
+	-> this is a automation process which create a bean implicitly
+
+	-> byName, byType, constructor, autodetect-> deprecated
+
+
+	spring example without xml file.
+
+	1. create a project add jars
+	2. create bean class
+	3. create configuration class
+	4. create main class
+
+
+	Basic modules:
+		IOC, core, DI, 
+
+	Spring JDBC
+	Spring web MVC
+
+	MVC -> model view controller
+
+	Model->
+		it contains data of the application(collection,single ..)
+
+	Controller ->
+		it is the business logic of an application.
+	
+	View -> it represent information in particular format, jsp+jstl where user can interact with application.
+
+	Steps to create spring mvc application:
+	1. create dynamic web application and load jar files
+	2. create controller class
+	3. provide entry to controller in web.xml
+	4. define bean objects
+	5. display message in jsp page
+	6. start server and deploy the project
+
+
+
+
+
+
+
+
+
+
+		

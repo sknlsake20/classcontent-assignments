@@ -1,0 +1,158 @@
+- creating dynamic web application and loading jars
+
+	common-logging, aop, bean, context, expression, web, webmvc, core
+
+- create controller class
+		@Controller,@RequestMapping
+
+- provide entry for controller in web.xml
+
+		mapping all urls to Dispatcher servlet
+		spring-servlet.xml
+
+
+	component-scan : 
+		-> scan configuration, services, controller,......
+
+- define bean object.
+
+- display message in jsp/jstl page.
+
+		create hello.jsp page in webapp folder
+
+- start server and deployed.
+
+
+	ViewResolvers:
+		It is used to display or format depending on response coming from DispatcherServlet.
+
+	InternalResourceViewResolver:
+
+	-> page to be navigated to either jsp or jstl file.
+
+
+/WEB-INF/jsp/hello.jsp
+
+
+	Types of viewresolver:
+	-> InternalResourceViewResolver
+
+		it is used for viewing interanal jsp/jstl pages
+		         prefix and suffix
+
+	-> UrlBasedViewResolver
+
+			http://displaydetails.com
+			pages
+
+	-> ResourceBundleViewResolver
+
+			views.properties
+		hello: hello.jsp
+		helloworld: helloworld.jsp
+
+
+	-> XmlViewResolver
+			spring.xml
+
+			xml -> mapping
+
+	-> VelocityViewResolver	-> it is subclass of  UrlViewResolver for velocity templates ->
+
+	-> ContentNegotiatingViewResolver
+
+		depending on content we can have file name or header
+
+	-> AbstractCachingViewResolver
+
+		-> view need preparation before they can be used. it gives chacing and views.
+
+
+
+
+-> form details to be brought to controller.
+
+		request , request param, model(send data to view pages)
+
+->spring tag libraries-> spring tags
+
+
+<%@ taglib  prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+
+	form:form
+	form:input
+	form:radiobutton
+	form:checkbox
+	form:select
+	form:password
+	form:textarea
+	form:hidden
+
+
+<form:form action="url" modelAttribute="somename">
+
+
+
+ web.xml -> (welcome file)index.jsp -> ./regform -> web.xml -> dipatchersevlet-> spring-servlet.xml -> controller -> requestmapping -> (student)register.jsp -> submmit -> action ->(student) ./register -> web.xml -> dispatcherservlet-> spring-servlet.xml ->controller -> display.jsp -> printed all values 
+
+		
+spring MVC validation:
+
+	web application:
+
+		-> presentation layer -> html, css, javascript, angualar....
+		-> data service layer -> controller,.....
+		-> business logic layer -> services class
+		-> data access layer -> db connectivity.
+	-> number validation
+	-> regular expression validation
+	-> custom validation
+		
+
+
+	-> @NotNull
+	-> @Min
+	-> @Max
+	-> @Size
+	-> @Pattern
+@Valid -> BindingResult
+
+
+	-> spring JDBC -> 
+
+		it is an api which provides mechanism to get connected databas and execute queries.
+
+		JdbcTemplate -> class
+
+	Advantages:
+	-> it elimates creating lots of code before and after query exectuion
+	-> exception are auto handled
+	-> transaction can be controlled
+	-> database logic can maintained easily.
+
+	steps to create JDBC template example
+	-> we need create project and load jars
+	-> create applicationContext.xml file & configure jdbc
+	-> create bean class
+	-> create service class(DAO class)
+	-> create main class
+
+
+
+
+
+	-> spring orm -> hibernate 
+	
+
+
+
+
+
+
+
+
+
+
+
+

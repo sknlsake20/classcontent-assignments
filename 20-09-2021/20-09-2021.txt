@@ -1,0 +1,138 @@
+JSP:
+
+		-> Translated into class
+		-> compile that class
+		-> Loads class
+		-> instantiates that particulat class
+		-> initializes object
+		-> execute service
+		-> destory
+
+
+	out
+	request
+	response
+	config
+	application
+	session
+	pagecontext -> request, session, page.......
+	page
+	exception
+
+
+	Directives:
+
+		-> these tell web container, how to convert pages into servlet
+		-> types of directives:
+			- page
+
+			import -> import different packages into present jsp page
+			contentType -> content in jsp page available
+			extends -> inherit any other class
+			info -> setting certain information of the jsp page
+			buffer -> it sets buffer size in kilobyte to handle output
+			language -> java, javascript
+			isELIgnored -> expression language
+			isThreadSafe -> thread creation of our jsp page.
+			errorPage -> which error page to be opened
+			isErroPage -> this page
+			
+			
+			- include
+
+			<%@ include resource=""%>
+
+			- taglib
+			<%@ taglib uri="" prefix=""%>
+
+
+	Expression language:
+
+		-> it is used to access data stored in like request, session, application,cookie,......
+
+	implicit objects:
+
+		param
+		paramValues - request object		
+		requestScope - request
+		
+		pageScope - only one jsp page
+		sessionScope - HttpSession object
+		applicationScope -> ServletContext
+		header
+		headerValues
+		cookie
+		initParam
+		pageContext
+
+
+	-> accept two numbers and find out addition of two numbers.(EL)
+
+	EL have there own operators:
+		[],(),* ,/(div),%(mod),&&-> and,|| -> or , ?:
+
+	keywords:
+
+	lt,le,gt,ge,eq,ne,true,false,and,or,not,instanceof,div,mod,empty,null
+		
+	JSTL library: (jsp standard tag library)
+
+	jar -> java archeive files -> 
+	war -> web archeive files -> 
+	ear -> enterprise archeive files -> 
+
+	jstl.jar -> predefined classes
+
+	Why-> 
+	for removing scriplet code from jsp
+	
+	-> Fast development
+	-> code reusability
+
+	JSTL tags:
+	types:
+	1. core tags
+
+		<c:out></c:out>
+		c:import
+		c:set	
+		c:remove
+		c:if
+		c:choose
+		c:when
+		c:otherwise
+		c:forEach
+		c:forTokens
+		c:param
+		c:redirect
+		c:url
+
+	2. function tags
+	3. format tags
+
+		formats can be set using format tags:
+		 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+		<fmt:parseNumber attirbutes></fmt>
+		<fmt:timezone>
+		fmt:parseDate
+		fmt:formatNumber
+		fmt:bundle
+
+			- to get loads of resouces as a bundle
+		fmt:setTimeZone
+		fmt:message
+		fmt:formatDate
+		fmt:setBundle
+
+
+	
+		
+	4. xml tags
+	5. sql tags/
+
+
+
+
+	spring core:
+		
