@@ -11,9 +11,10 @@ background: url("../resources/image/donar.png")no-repeat center center fixed;
 background-size: cover;
 }
 </style>
+<script src="<c:url value="/resources/js/logingin.js" />"></script>
 </head>
 <body>
-<form action="/display">
+<form name="myForm"  action="/display" onsubmit="return validateForm()">
 <br>
 <br>
 <br>

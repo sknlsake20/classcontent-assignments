@@ -17,6 +17,7 @@ background-size: cover;
  rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+<script src="<c:url value="/resources/js/logout.js" />"></script>
 </head>
 <body>
 <div class="container">
@@ -28,6 +29,10 @@ background-size: cover;
     onclick="window.location.href='showForm'; return false;"
     class="btn btn-primary" />
     <br/><br/>
+    <form action="/donar/logout" onsubmit="return validatelogout()">
+   <input type="submit" name="logout" value="Logout" title="Click here for logout"/>
+   </form>
+   <br/>
     
    
    <div class="panel panel-info">
