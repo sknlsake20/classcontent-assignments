@@ -27,6 +27,9 @@ background-size: cover;
    <input type="button" value="Add Contributor"
     onclick="window.location.href='showForm'; return false;"
     class="btn btn-primary" />
+    <input type="button" value="Logout"
+    onclick="window.location.href='logout'; return false;"
+    class="btn btn-primary" />
     <br/><br/>
    <div class="panel panel-info">
     <div class="panel-heading">
@@ -77,10 +80,7 @@ background-size: cover;
       </c:forEach>
 
      </table>
-
-    </div>
-   </div>
-  </div>
+     </div>
 
  </div>
 </body>

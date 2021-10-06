@@ -5,6 +5,16 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+body{
+text-align:center;
+background:url("../resources/image/orphanagecontribution.png")no-repeat center center fixed;
+background-size: cover;
+font-family: Arial, georgia;
+}
+
+
+</style>
 </head>
 <body>
 <form action="/display">
