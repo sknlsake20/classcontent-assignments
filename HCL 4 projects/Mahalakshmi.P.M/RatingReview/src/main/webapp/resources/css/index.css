@@ -1,0 +1,11 @@
+@charset "ISO-8859-1";
+body{
+	background-image:url('/resources/image/star.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center;
+	background-attachment:fixed;
+}
+label{
+	color:white;	
+}
